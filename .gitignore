@@ -434,3 +434,6 @@ FodyWeavers.xsd
 
 /DirectX_notConnected/DX_Framework
 /DirectX/gitignore
+
+# Homework zip file
+*.zip
