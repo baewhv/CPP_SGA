@@ -6,24 +6,17 @@ Knight::Knight(string name, int hp, int atk, int speed)
 {
 }
 
-bool Knight::Attack(Creature* target)
+void Knight::Attack(Creature* target)
 {
-	if (this->GetMaxHp() / 2 > this->GetHp())
+	if (_maxHp / 2 > _hp)
 	{
-		cout << endl << this->GetName() << " was low HP. " << endl;
-		cout << this->GetName() << "'s final attack! " << endl;
-		target->hasDamaged(this->GetAtk() * 2);
+		cout << endl << _name << " was low HP. " << endl;
+		cout << _name << "'s final attack! " << endl;
+		target->hasDamaged(_atk * 2);
 	}
 	else
 	{
-		cout << endl << this->GetName() << "'s attack! " << endl;
-		target->hasDamaged(this->GetAtk());
+		cout << endl << _name << "'s attack! " << endl;
+		target->hasDamaged(_atk);
 	}
-	this->AddCoolTime(-10);
-	if (target->GetHp() <= 0)
-	{
-		cout << target->GetName() << "is defeated. " << this->GetName() << "'s win." << endl;
-		return true;
-	}
-	return false;
 }

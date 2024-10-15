@@ -10,33 +10,29 @@ Creature::Creature()
 	_spd = 1;
 	_coolTime = 0;
 }
+Creature::Creature(string name, int hp, int atk, int spd)
+	:_name(name), _maxHp(hp), _hp(hp), _atk(atk), _spd(spd), _coolTime(0)
+{
+}
 
 void Creature::Attack(Creature* target)
 {
 	cout << endl << _name << "'s attack! " << endl;
 	target->hasDamaged(_atk);
-	if (target->GetHp() <= 0)
-	{
-		cout << target->GetName() << " is defeated. " << _name << "'s win." << endl;
-	}
 }
 
-Creature::Creature(string name, int hp, int atk, int spd)
-	:_name(name),_maxHp(hp), _hp(hp), _atk(atk), _spd(spd), _coolTime(0)
-{
-}
 
 void Creature::Print()
 {
-	cout << this->_name << "'s status" << endl;
-	cout << this->_name << "'s hp : " << this->_hp << endl;
-	cout << this->_name << "'s atk : " << this->_atk << endl;
-	cout << this->_name << "'s spd : " << this->_spd << endl << endl;
+	cout << _name << "'s status" << endl;
+	cout << _name << "'s hp : " << _hp << endl;
+	cout << _name << "'s atk : " << _atk << endl;
+	cout << _name << "'s spd : " << _spd << endl << endl;
 }
 
 bool Creature::CheckAtk()
 {
-	if (this->GetHp() > 0 && this->GetCoolTime() >= 10)
+	if (_hp > 0 && _coolTime >= 10)
 	{
 		AddCoolTime(-10);
 		return true;

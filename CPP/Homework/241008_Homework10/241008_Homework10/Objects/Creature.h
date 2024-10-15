@@ -5,7 +5,7 @@ class Creature
 public:
 	Creature();
 
-	virtual void Attack(class Creature* p) abstract;
+	virtual void Attack(class Creature* target) abstract;
 
 	Creature(string name, int hp, int atk, int spd);
 
@@ -18,6 +18,8 @@ public:
 
 	int GetMaxHp() { return _maxHp; }
 	int GetHp() { return _hp; }
+	bool isAlive() { return _hp > 0; }
+
 	int GetAtk() { return _atk; }
 	int GetSpd() { return _spd; }
 	int GetCoolTime() { return _coolTime; }
