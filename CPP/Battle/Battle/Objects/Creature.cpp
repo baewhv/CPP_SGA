@@ -6,9 +6,6 @@ Creature::Creature(string name, int hp, int atk)
 {
 }
 
-Creature::~Creature()
-{
-}
 
 void Creature::PrintInfo()
 {

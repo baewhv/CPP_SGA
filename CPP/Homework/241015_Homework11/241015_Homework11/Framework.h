@@ -1,17 +1,15 @@
 #pragma once
 #include <iostream>
 #include <string>
-//미리 컴파일된 헤더
-//pch = pre compiled header
-
 
 using namespace std;
+#include "Manager/SoundManager.h"
 
 #include "Objects/Creature.h"
 #include "Objects/Player.h"
 #include "Objects/Monster.h"
 #include "Objects/Goblin.h"
 #include "Objects/Knight.h"
-
-#include "World.h"
+#include "Objects/Archer.h"
+#include "Objects/Mage.h"
 

@@ -3,7 +3,7 @@ class Goblin : public Monster
 {
 public:
 	Goblin(string name);
-	~Goblin();
+	~Goblin() { cout << "Delete Goblin" << endl; }
 
 	virtual void Attack(class Creature* other) override;
 

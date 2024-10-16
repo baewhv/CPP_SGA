@@ -5,7 +5,7 @@ class Creature
 public:
 	Creature() :_name(""), _hp(0), _maxHp(0), _atk(0) {}
 	Creature(string name, int hp, int atk);
-	~Creature();
+	~Creature() { cout << "Delete Creature" << endl; }
 
 	void PrintInfo();
 	virtual void Attack(Creature* other);

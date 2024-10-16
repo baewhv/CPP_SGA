@@ -1,4 +1,4 @@
-#include "../framework.h"
+#include "Framework.h"
 #include "Knight.h"
 
 Knight::Knight(string name, int hp, int atk)

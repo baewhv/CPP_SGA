@@ -1,4 +1,4 @@
-#include "../framework.h"
+#include "Framework.h"
 #include "Goblin.h"
 
 Goblin::Goblin(string name)
@@ -6,9 +6,6 @@ Goblin::Goblin(string name)
 {
 }
 
-Goblin::~Goblin()
-{
-}
 
 void Goblin::Attack(Creature* other)
 {

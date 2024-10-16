@@ -43,6 +43,8 @@ public:
 
 	void PrintHello() { cout << "HelloWorld" << endl; }
 
+	void ReduceCooltime();
+
 private:
 	static SoundManager* _instance;
 };
@@ -67,4 +69,8 @@ int main()
 	//delete sn;
 
 	return 0;
+}
+
+void SoundManager::ReduceCooltime()
+{
 }

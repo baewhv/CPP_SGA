@@ -8,7 +8,7 @@ class Knight : public Player
 
 public:
 	Knight(string name, int hp, int atk);
-	~Knight() {}
+	~Knight() { cout << "Delete Knight" << endl; }
 
 
 	//함수 재정의는 함수 시그니쳐가 같아야함.
