@@ -11,6 +11,8 @@ float Add(float a, float b); //함수 오버로딩 : 동일한 명칭의 함수가 다른 반환값�
 int Add(int a, int b, int c);
 int Add(int a, int b, int c, int d, int e = 1); //
 
+int Add(int a, int b);
+
 
 void HelloWorld(void)	//void
 {
