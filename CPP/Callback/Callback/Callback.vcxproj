@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5dfec70e-937e-4b5e-a359-e308e3e92434}</ProjectGuid>
-    <RootNamespace>QuartetCasting</RootNamespace>
+    <ProjectGuid>{176c6ea3-24ed-4616-aba5-1fddbec781a3}</ProjectGuid>
+    <RootNamespace>Callback</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
