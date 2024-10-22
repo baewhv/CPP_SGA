@@ -12,7 +12,7 @@ int main()
 	*cb += 5;
 	cout << *cb << endl;
 	cout << a << endl;  //디버그 상에서는 10인데 출력은 왜 5일까?
-	cout << a << endl;
+	cout << a << endl;  //컴파일러 최적화 관련 문제
 	cout << *ca << a << endl;
 	return 0;
 }
