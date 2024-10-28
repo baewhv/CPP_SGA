@@ -20,6 +20,19 @@ struct Functor
 	//함수인데 속성을 가질 수 있다.
 };
 
+struct Functor2
+{
+	bool operator()(int num)
+	{
+		if (num == compareNum)
+		{
+			return true;
+		}
+		return false;
+	}
+	int compareNum;
+};
+
 int main()
 {
 	Functor functor;
@@ -31,6 +44,16 @@ int main()
 
 	functor.num = 3;
 	functor();
+
+	Functor2 functor2;
+	functor2.compareNum = 5;
+
+	int aInt = 12;
+
+	if (functor2(12))
+		cout << "aInt는 " << functor2.compareNum << "와 같습니다." << endl;
+	else
+		cout << "aInt는 " << functor2.compareNum << "와 다릅니다." << endl;
 
 	return 0;
 }
