@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-	myList mList;
+	myList<int> mList;
 	mList.Push_back(5);
 	mList.Push_back(3);
 	mList.Push_back(2);
