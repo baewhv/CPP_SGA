@@ -6,11 +6,11 @@ using namespace std;
 template<typename T>
 struct Node
 {
-	Node() : data(T()), next(nullptr), prev(nullptr) {}//T() 해당 타입의 기본 생성
+	Node() : data(T()), next(nullptr), prev(nullptr) {}
 	Node(T data) : data(data), next(nullptr), prev(nullptr) {}
 	~Node() {}
 
-	T data;
+	T data; //데이터도 포인터로 만들어야 하는지?
 	Node<T>* next;
 	Node<T>* prev;
 };

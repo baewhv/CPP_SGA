@@ -3,9 +3,10 @@
 #include <list>
 using namespace std;
 
-#include "myVector.h"
+//
+// #include "myVector.h"
 
-
+#include "myList.h"
 
 //container : c++ 자료구조
 //vector, list : 선형 자료구조
@@ -60,7 +61,7 @@ int main()
 
 	//cout << *(ptr + 1) << endl;
 	}
-
+	/*
 	{
 		//vector : 동적 배열, 가변 배열 <-> 정적배열
 		//1. 길이가 동적으로 변할 수 있다.
@@ -81,11 +82,11 @@ int main()
 			//cout << "Size : " << v.size() << endl;
 		}
 	}
+	*/
 
+	cout << "list" << endl;
 
-
-
-	vector<int> v;
+	myList<int> v;
 	v.push_back(3);
 	v.push_back(5);
 	v.push_back(1);
@@ -94,24 +95,22 @@ int main()
 	v.push_back(34);
 	v.push_back(68);
 
-	//1. 인덱스를 활용한 순회.
-	for (int i = 0; i < v.size(); i++)
-	{
-		cout << v[i] << endl;
-	}
 
-	vector<int>::iterator vIter = v.begin();
+
+	//1. 인덱스를 활용한 순회.
+	//for (int i = 0; i < v.size(); i++)
+	//{
+	//	cout << *v.begin() << endl;
+	//}
+
+	myList<int>::Iterator vIter = v.begin();
 	//2. iterator를 이용한 순회
 	for (vIter; vIter != v.end(); vIter++)
 	{
 		cout << *vIter << endl;
 	}
 
-	vector<int>::iterator insertIter = v.begin() + 3;
 
-	vector<int>::iterator resultIter = v.insert(insertIter, 10);
-
-	v.erase(resultIter + 1);
 
 	return 0;
 }

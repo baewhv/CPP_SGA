@@ -17,7 +17,7 @@ public:
 		//서로 알고있는 상황.
 		Iterator& operator=(const Iterator& other) { _ptr = other._ptr; }
 
-		Iterator operator++(int) //후위 단항 연산 표기법
+		Iterator operator++(int) //후위 증가 연산 표기법
 		{
 			Iterator temp = *this;
 			this->_ptr++;
