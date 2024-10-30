@@ -1,23 +1,41 @@
 #pragma once
-#include<iostream>
-using namespace std;
 
+template<typename T>
 struct Node
 {
-	Node(int data) : data(data), next(nullptr), prev(nullptr) {}
+	Node() : data(T()), next(nullptr), prev(nullptr) {}//T() 해당 타입의 기본 생성
+	Node(T data) : data(data), next(nullptr), prev(nullptr) {}
 	~Node() {}
 
-	int data;
-	Node* next;
-	Node* prev;
+	T data;
+	Node<T>* next;
+	Node<T>* prev;
 };
 
+template<typename T>
 class myList
 {
 public:
+	class Iterator
+	{
+	public:
+		Iterator() : _ptr(nullptr) {}
+		Iterator(Node<T> ptr) : _ptr(ptr) {}
+		Iterator(const Iterator& other) : _ptr(other._ptr) {}
+
+		Iterator& operator=(const Iterator& other)
+		{
+			_ptr = other._ptr;
+		}
+
+	private:
+		Node<T>* _ptr;
+	};
+
+public:
 	myList()
 	{
-		_head = new Node(-1);
+		_head = new Node<T>();
 		_head->next = _head;
 		_head->prev = _head;
 		_size = 0;
@@ -31,12 +49,12 @@ public:
 		delete _head;
 	}
 
-	void Push_back(const int& data)
+	void Push_back(const T& data)
 	{
-		Node* newNode = new Node(data);
+		Node<T>* newNode = new Node<T>(data);
 
-		Node* prevNode = _head->prev;
-		Node* nextNode = _head;
+		Node<T>* prevNode = _head->prev;
+		Node<T>* nextNode = _head;
 
 		newNode->prev = prevNode;
 		prevNode->next = newNode;
@@ -46,15 +64,15 @@ public:
 		_size++;
 	}
 
-	void Push_front(const int& data)
+	void Push_front(const T& data)
 	{
-		Node* newNode = new Node(data);
-		
+		Node<T>* newNode = new Node<T>(data);
+
 		newNode->prev = _head;
 		newNode->next = _head->next;
 		_head->next->prev = newNode;
 		_head->next = newNode;
-		
+
 
 		_size++;
 	}
@@ -64,25 +82,25 @@ public:
 	{
 		DeleteNode(_head->prev);
 	}
-	void Pop_front() 
+	void Pop_front()
 	{
 		DeleteNode(_head->next);
 	}
 
-	Node* findNode(int index)
+	Node<T>* findNode(int index)
 	{
 		if (index > _size)
 			return nullptr;
-		Node* findNode = _head->next;
+		Node<T>* findNode = _head->next;
 		for (int i = 0; i < index; i++)
 		{
 			findNode = findNode->next;
 		}
 		return findNode;
 	}
-	void Insert(Node* before, const int& data)
+	void Insert(Node<T>* before, const T& data)
 	{
-		Node* newNode = new Node(data);
+		Node<T>* newNode = new Node<T>(data);
 
 		newNode->next = before->next;
 		newNode->prev = before;
@@ -91,7 +109,7 @@ public:
 		before->next = newNode;
 		_size++;
 	}
-	void DeleteNode(Node* node) 
+	void DeleteNode(Node<T>* node)
 	{
 		node->prev->next = node->next;
 		node->next->prev = node->prev;
@@ -103,9 +121,9 @@ public:
 
 	const int& operator[](int index)
 	{
-		if (index >= _size) return -1; //찾고싶은 대상이 넘어갔을 경우
+		if (index >= _size) return -1;
 
-		Node* start = _head->next;
+		Node<T>* start = _head->next;
 
 		for (int i = 0; i < index; i++)
 		{
@@ -126,8 +144,8 @@ public:
 
 	void PrintData()
 	{
-		Node* n = _head->next;
-		cout << "print"<< endl;
+		Node<T>* n = _head->next;
+		cout << "print" << endl;
 		while (true)
 		{
 			if (n == _head)
@@ -138,7 +156,7 @@ public:
 	}
 
 private:
-	Node* _head;
+	Node<T>* _head;
 	int _size;
 };
 

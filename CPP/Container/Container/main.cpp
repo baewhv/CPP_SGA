@@ -1,9 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <list>
-
-
 using namespace std;
+
+#include "myVector.h"
+
+
 
 //container : c++ 자료구조
 //vector, list : 선형 자료구조
@@ -29,6 +31,25 @@ void PrintTwoD(int arr[][3], int ySize)
 
 //로또번호 뽑기
 
+
+// iterator : 순회자
+// c++ 라이브러리에서 제공하는 컨테이너들을 이 수횐자 문법으로 순회가 가능하다.
+// stl에서 제공하는 알고리즘 함수들, 컨테이너의 멤버함수들을 사용할 때 쓰인다.
+
+template<typename Container, typename Iter>
+void PrintContainer(Container container)
+{
+	Iter iter;
+
+	iter = container.begin();
+
+	for (iter; iter != container.end(); iter++)
+	{
+		cout << *iter << endl;
+	}
+}
+
+
 int main()
 {
 
@@ -37,7 +58,7 @@ int main()
 	//1,2,3,4,5,6으로 메모리에 1자로 늘어져있음.
 	int* ptr = &arr[0][0];
 
-	cout << *(ptr + 1) << endl;
+	//cout << *(ptr + 1) << endl;
 	}
 
 	{
@@ -56,10 +77,41 @@ int main()
 		for (int i = 0; i < 1000; i++)
 		{
 			v.push_back(i);
-			cout << "Capacity : " << v.capacity() << endl;
-			cout << "Size : " << v.size() << endl;
+			//cout << "Capacity : " << v.capacity() << endl;
+			//cout << "Size : " << v.size() << endl;
 		}
 	}
+
+
+
+
+	vector<int> v;
+	v.push_back(3);
+	v.push_back(5);
+	v.push_back(1);
+	v.push_back(16);
+	v.push_back(222);
+	v.push_back(34);
+	v.push_back(68);
+
+	//1. 인덱스를 활용한 순회.
+	for (int i = 0; i < v.size(); i++)
+	{
+		cout << v[i] << endl;
+	}
+
+	vector<int>::iterator vIter = v.begin();
+	//2. iterator를 이용한 순회
+	for (vIter; vIter != v.end(); vIter++)
+	{
+		cout << *vIter << endl;
+	}
+
+	vector<int>::iterator insertIter = v.begin() + 3;
+
+	vector<int>::iterator resultIter = v.insert(insertIter, 10);
+
+	v.erase(resultIter + 1);
 
 	return 0;
 }

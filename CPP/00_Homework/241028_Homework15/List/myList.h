@@ -5,6 +5,7 @@ using namespace std;
 template<typename T>
 struct Node
 {
+	Node() : data(T()), next(nullptr), prev(nullptr) {}//T() 해당 타입의 기본 생성
 	Node(T data) : data(data), next(nullptr), prev(nullptr) {}
 	~Node() {}
 
@@ -19,7 +20,7 @@ class myList
 public:
 	myList()
 	{
-		_head = new Node<T>(-1);
+		_head = new Node<T>();
 		_head->next = _head;
 		_head->prev = _head;
 		_size = 0;
