@@ -1,6 +1,5 @@
 #include "Framework.h"
 
-
 int main()
 {
 	cout << "hello world" << endl;
