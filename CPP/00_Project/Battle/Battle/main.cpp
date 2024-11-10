@@ -2,13 +2,8 @@
 
 int main()
 {
-	cout << "hello world" << endl;
-	int a;
-	cin >> a;
-
-	system("cls");
-	cout << "the end" << endl;
-
+	GameManager::GetInstance()->SetPlayer(new Creature("nav",1,2,3));
+	
 
 	return 0;
 }

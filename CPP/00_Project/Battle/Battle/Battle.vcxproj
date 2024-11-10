@@ -151,6 +151,9 @@
     <ClCompile Include="Creatures\Archer.cpp" />
     <ClCompile Include="Creatures\Creature.cpp" />
     <ClCompile Include="Creatures\Knight.cpp" />
+    <ClCompile Include="Manager\InputManager.cpp" />
+    <ClCompile Include="Scene\Lobby.cpp" />
+    <ClCompile Include="Scene\Forest.cpp" />
     <ClCompile Include="Framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Framework.h</PrecompiledHeaderFile>
@@ -163,9 +166,11 @@
     </ClCompile>
     <ClCompile Include="Creatures\Goblin.cpp" />
     <ClCompile Include="Creatures\Mage.cpp" />
+    <ClCompile Include="Manager\GameManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Creatures\Monster.cpp" />
     <ClCompile Include="Creatures\Player.cpp" />
+    <ClCompile Include="Scene\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Creatures\Boss.h" />
@@ -174,10 +179,15 @@
     <ClInclude Include="Creatures\Monster.h" />
     <ClInclude Include="Creatures\Player.h" />
     <ClInclude Include="Creatures\Creatures.h" />
+    <ClInclude Include="Manager\InputManager.h" />
+    <ClInclude Include="Scene\Lobby.h" />
+    <ClInclude Include="Scene\Forest.h" />
     <ClInclude Include="Framework.h" />
     <ClInclude Include="Creatures\Knight.h" />
     <ClInclude Include="Creatures\Goblin.h" />
     <ClInclude Include="Creatures\Mage.h" />
+    <ClInclude Include="Manager\GameManager.h" />
+    <ClInclude Include="Scene\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

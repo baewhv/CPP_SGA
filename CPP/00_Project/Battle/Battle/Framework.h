@@ -9,4 +9,7 @@
 
 using namespace std;
 
+#include "Manager/InputManager.h"
+#include "Manager/GameManager.h"
 #include "Creatures/Creatures.h"
+#include "Scene/World.h"
