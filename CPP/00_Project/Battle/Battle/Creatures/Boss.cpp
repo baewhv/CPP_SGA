@@ -3,13 +3,18 @@
 
 void Boss::Attack()
 {
-	sort(aggro.begin(), aggro.end(), [](pair<const Creature*, int>& a, pair<const Creature*, int>& b)->bool {return a.second > b.second; });
+	if (!isAlive())
+		return;
+
+	vector<pair<Creature*, int>> aggroV(aggro.begin(),aggro.end());
+
+	sort(aggroV.begin(), aggroV.end(), [](pair<Creature*, int> a, pair<Creature*, int> b)->bool {return a.second > b.second; });
 	int targetCount = 0;
-	for (auto it = aggro.begin(); it != aggro.end(); it++)
+	for (auto it = aggroV.begin(); it != aggroV.end(); it++)
 	{
-		if (!it->first->isAlive())
+		if (!((*it).first)->isAlive())
 		{
-			it = aggro.erase(it);
+			it = aggroV.erase(it);
 		}
 		else
 		{

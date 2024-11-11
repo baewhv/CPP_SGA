@@ -6,7 +6,7 @@ public:
 	Boss() : Goblin("Giant Goblin", 200 + rand() % 30, 15 + rand() % 8, 1) {}
 	virtual ~Boss() {};
 	
-	virtual void Attack(Creature* target, ATKFUNC func = nullptr) {}
+	virtual void Attack(Creature* target, ATKFUNC func = nullptr) { Goblin::Attack(target, func); }
 	virtual void GetDamage(int damage) { Goblin::GetDamage(damage); }
 	
 	void Attack();
