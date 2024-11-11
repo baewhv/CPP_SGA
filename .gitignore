@@ -437,3 +437,5 @@ FodyWeavers.xsd
 
 # Homework zip file
 *.zip
+/CPP/00_Homework/*.png
+/CPP/00_Homework/*.gif
