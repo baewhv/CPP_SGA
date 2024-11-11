@@ -2,10 +2,10 @@
 class Lobby : public World
 {
 public:
-	Lobby() : World() {}
+	Lobby() {}
 	~Lobby() {}
 
 
-	virtual void PlayScene() override;
+	virtual void PlayScene();
 };
 

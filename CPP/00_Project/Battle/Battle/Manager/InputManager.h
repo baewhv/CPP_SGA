@@ -10,6 +10,8 @@ private:
 public:
 	static InputManager* GetInstance();
 	int IntInput(int min, int max);
+	string StringInput(int min, int max);
+	void ClearScrean();
 
 
 };

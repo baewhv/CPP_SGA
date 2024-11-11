@@ -11,11 +11,9 @@ public:
 		return _inst;
 	}
 	class Creature* GetPlayer();
-	void SetPlayer(class Creature* p);
 	void CreatePlayer();
-	void LoadScene(MapList m);
-
-
+	void SelectLocation();
+	void LoadScene();
 
 private:
 	GameManager() : _p(nullptr), _w(nullptr) {}

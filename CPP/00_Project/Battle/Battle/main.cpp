@@ -2,8 +2,7 @@
 
 int main()
 {
-	GameManager::GetInstance()->SetPlayer(new Creature("nav",1,2,3));
-	
+	GameManager::GetInstance()->LoadScene();
 
 	return 0;
 }

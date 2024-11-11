@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Scene\Cave.cpp" />
     <ClCompile Include="Creatures\Boss.cpp" />
     <ClCompile Include="Creatures\Archer.cpp" />
     <ClCompile Include="Creatures\Creature.cpp" />
@@ -171,8 +172,10 @@
     <ClCompile Include="Creatures\Monster.cpp" />
     <ClCompile Include="Creatures\Player.cpp" />
     <ClCompile Include="Scene\World.cpp" />
+    <ClCompile Include="Scene\Town.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Scene\Cave.h" />
     <ClInclude Include="Creatures\Boss.h" />
     <ClInclude Include="Creatures\Archer.h" />
     <ClInclude Include="Creatures\Creature.h" />
@@ -188,6 +191,8 @@
     <ClInclude Include="Creatures\Mage.h" />
     <ClInclude Include="Manager\GameManager.h" />
     <ClInclude Include="Scene\World.h" />
+    <ClInclude Include="Scene\SceneList.h" />
+    <ClInclude Include="Scene\Town.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
