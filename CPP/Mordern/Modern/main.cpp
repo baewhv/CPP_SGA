@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -52,7 +53,7 @@ public:
 		_hp = other._hp;
 		_pet = other._pet;
 
-		return this;
+		return *this;
 	}
 	
 	int _hp = 0;
@@ -66,7 +67,7 @@ void Func(Player p)
 {
 	p = Player(5);
 
-	Player p = Player(5); //타입변환생성자
+	Player pp = Player(5); //타입변환생성자
 }
 
 //Call by Address
@@ -89,6 +90,18 @@ void FuncRef(Player& p)
 
 }
 
+// Call by Rv Ref
+// 1. 복사비용이 적게 든다.
+// 2. 원본이 접근 가능하다.
+// 3. 쓰기 쉽다.
+// 4. 임시 객체 또한 넘길 수 있다.
+void FuncRefRef(Player&& p)
+{
+	cout << "우측값 참조 전달" << endl;
+}
+
+
+
 int main()
 {
 	// 10 = 5; 10 -> 수정할 수 없는 값. = rValue;
@@ -107,11 +120,29 @@ int main()
 	//unique_ptr<Player> unique_p = make_unique<Player>(1);
 	//unique_ptr<Player> unique_p2 = std::move(unique_p);
 
+	FuncRefRef(Player()); //임시 객체를 우측값 참조로 넘긴다. 임시객체는 사용 후 바로 버린다.
+	Func(std::move(*p)); //*p를 우측값 참조로 넘긴다. => *p는 이 후 껍데기만 남는다.
+	
+	//Func(std)
+
+
+
 	delete p;
 	delete p2;
 	delete p3;
 
 	Func(*new Player());
+
+
+	cout << "-------------------------------" << endl;
+
+	vector<Player> players;
+	Player p4;
+
+	players.push_back(Player()); //이동생성자 호출
+	players.push_back(p4); //복사생성자 호출.
+	players.push_back();
+	players.emplace_back(Player());
 
 	return 0 ;
 }
