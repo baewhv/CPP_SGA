@@ -26,7 +26,7 @@ void Cave::AttackBoss()
 	_boss = new Boss();
 	for (int i = 0; i < 9; i++)
 	{
-		Players.push_back(new Knight());
+		Players.push_back(new Knight(i+1));
 	}
 
 	while (true)

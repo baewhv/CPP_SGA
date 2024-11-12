@@ -2,9 +2,9 @@
 
 //using ATKFUNC = void(*)(int);
 
-//typedef void(*ATKFUNC)(int);
+typedef void(*ATKFUNC)(int);
 
-using ATKFUNC = std::function<void(int)>;
+//using ATKFUNC = std::function<void(int)>;
 
 class Creature
 {
@@ -18,7 +18,8 @@ public:
 	void PrintCreature();
 
 	void SetName(string name) { _name = name; }
-	virtual void Attack(Creature* c, ATKFUNC = nullptr);
+
+	virtual void Attack(Creature* c, function<void(int)> func = nullptr);
 	void GetDamage(int damage);
 
 protected:
@@ -28,6 +29,6 @@ protected:
 	int _atk;
 	int _spd;
 
-	ATKFUNC _func;
+	function<void(int)> _func;
 };
 

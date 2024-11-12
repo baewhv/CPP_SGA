@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mordern", "Mordern\Mordern.vcxproj", "{4A61F46F-B60C-417E-ACE6-3F0A3BC2D60B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Modern", "Mordern\Mordern.vcxproj", "{4A61F46F-B60C-417E-ACE6-3F0A3BC2D60B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mordern2", "Mordern2\Mordern2.vcxproj", "{0E1F6C76-EDE2-4A24-BA39-299A3FF30879}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Modern2", "Mordern2\Mordern2.vcxproj", "{0E1F6C76-EDE2-4A24-BA39-299A3FF30879}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Modern3", "Modern\Modern.vcxproj", "{00153EB0-8FA6-4DE7-83BE-17F36BEEDDF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{0E1F6C76-EDE2-4A24-BA39-299A3FF30879}.Release|x64.Build.0 = Release|x64
 		{0E1F6C76-EDE2-4A24-BA39-299A3FF30879}.Release|x86.ActiveCfg = Release|Win32
 		{0E1F6C76-EDE2-4A24-BA39-299A3FF30879}.Release|x86.Build.0 = Release|Win32
+		{00153EB0-8FA6-4DE7-83BE-17F36BEEDDF6}.Debug|x64.ActiveCfg = Debug|x64
+		{00153EB0-8FA6-4DE7-83BE-17F36BEEDDF6}.Debug|x64.Build.0 = Debug|x64
+		{00153EB0-8FA6-4DE7-83BE-17F36BEEDDF6}.Debug|x86.ActiveCfg = Debug|Win32
+		{00153EB0-8FA6-4DE7-83BE-17F36BEEDDF6}.Debug|x86.Build.0 = Debug|Win32
+		{00153EB0-8FA6-4DE7-83BE-17F36BEEDDF6}.Release|x64.ActiveCfg = Release|x64
+		{00153EB0-8FA6-4DE7-83BE-17F36BEEDDF6}.Release|x64.Build.0 = Release|x64
+		{00153EB0-8FA6-4DE7-83BE-17F36BEEDDF6}.Release|x86.ActiveCfg = Release|Win32
+		{00153EB0-8FA6-4DE7-83BE-17F36BEEDDF6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

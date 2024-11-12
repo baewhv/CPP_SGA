@@ -10,7 +10,7 @@ void Creature::PrintCreature()
 	cout << "-------------" << endl;
 }
 
-void Creature::Attack(Creature* target, ATKFUNC func)
+void Creature::Attack(Creature* target, function<void(int)> func)
 {
 	if (target != nullptr && target->isAlive())
 	{
