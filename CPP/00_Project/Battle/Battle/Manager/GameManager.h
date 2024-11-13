@@ -1,4 +1,6 @@
 #pragma once
+class Creature;
+
 class GameManager
 {
 public:
@@ -10,7 +12,7 @@ public:
 		}
 		return _inst;
 	}
-	class Creature* GetPlayer();
+	shared_ptr<Creature>& GetPlayer();
 	void CreatePlayer();
 	void SelectLocation();
 	void LoadScene();
@@ -22,7 +24,7 @@ private:
 	GameManager& operator =(const GameManager& other) {}
 
 	static GameManager* _inst;
-	class Creature* _p;
+	shared_ptr<Creature> _p;
 	class World* _w;
 };
 

@@ -1,24 +1,40 @@
 #include "Framework.h"
 #include "Boss.h"
 
+void Boss::GetDamage(int damage, shared_ptr<Creature> c)
+{
+
+	Creature::GetDamage(damage, c);
+	auto it = aggro.begin();
+	for (it; it != aggro.end(); it++)
+	{
+		if (!it->_ptr.expired())
+		{
+			if (it->_ptr.lock() == c)
+			{
+				it->_totalDamage += damage;
+				break;
+			}
+		}
+	}
+	if (it == aggro.end())
+	{
+		aggro.push_back(Aggro(c,damage));
+	}
+}
+
 void Boss::Attack()
 {
 	if (!isAlive())
 		return;
 
-	vector<pair<Creature*, int>> aggroV(aggro.begin(),aggro.end());
-
-	sort(aggroV.begin(), aggroV.end(), [](pair<Creature*, int> a, pair<Creature*, int> b)->bool {return a.second > b.second; });
+	sort(aggro.begin(), aggro.end(), [](Aggro a, Aggro b)->bool {return a._totalDamage > b._totalDamage; });
 	int targetCount = 0;
-	for (auto it = aggroV.begin(); it != aggroV.end(); it++)
+	for (auto it = aggro.begin(); it != aggro.end(); it++)
 	{
-		if (!((*it).first)->isAlive())
+		if (!it->_ptr.expired())
 		{
-			it = aggroV.erase(it);
-		}
-		else
-		{
-			Attack(it->first);
+			Attack(it->_ptr.lock());
 			targetCount++;
 		}
 		if (targetCount >= 4)

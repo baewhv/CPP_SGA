@@ -3,7 +3,7 @@
 
 GameManager* GameManager::_inst = nullptr;
 
-Creature* GameManager::GetPlayer()
+shared_ptr<Creature>& GameManager::GetPlayer()
 {
 	if (_p == nullptr)
 	{
@@ -20,10 +20,6 @@ void GameManager::CreatePlayer()
 	{
 		cout << "You don't have any character." << endl;
 	}
-	else
-	{
-		delete _p;
-	}
 	cout << "Choose your job" << endl;
 	cout << "[1]Knight [2]Archer [3]Mage" << endl;
 
@@ -31,15 +27,15 @@ void GameManager::CreatePlayer()
 	{
 	case 1:
 		cout << "You choose Knight." << endl;
-		_p = new Knight();
+		_p = make_shared<Knight>();
 		break;
 	case 2:
 		cout << "궁수를 생성했다." << endl;
-		//_p = new Archer();
+		_p = make_shared<Archer>();
 		break;
 	case 3:
 		cout << "마법사를 생성했다." << endl;
-		//_p = new Mage();
+		_p = make_shared<Mage>();
 		break;
 	}
 

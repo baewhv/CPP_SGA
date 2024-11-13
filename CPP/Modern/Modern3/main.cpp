@@ -58,6 +58,7 @@ public:
 	
 	int _hp = 0;
 	Pet* _pet;
+	
 };
 
 //Call by Value

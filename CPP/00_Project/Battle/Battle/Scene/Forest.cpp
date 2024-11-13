@@ -43,13 +43,13 @@ void Forest::AttackGoblin(int count)
 {
 	for (int i = 0; i < count; i++)
 	{
-		goblins.push_back(new Goblin(i+1));
+		goblins.push_back(make_shared<Goblin>(i+1));
 	}
 
 	while (true)
 	{
 		int num = rand() % goblins.size();
-		GETPLAYER->Attack(goblins[num], nullptr);
+		GETPLAYER->Attack(goblins[num]);
 		if (!goblins[num]->isAlive())
 		{
 			goblins.erase(goblins.begin()+num);

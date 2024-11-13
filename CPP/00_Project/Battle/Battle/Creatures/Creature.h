@@ -6,7 +6,7 @@ typedef void(*ATKFUNC)(int);
 
 //using ATKFUNC = std::function<void(int)>;
 
-class Creature
+class Creature : public enable_shared_from_this<Creature>
 {
 public:
 	Creature(string name, int hp, int atk, int spd) :
@@ -19,8 +19,9 @@ public:
 
 	void SetName(string name) { _name = name; }
 
-	virtual void Attack(Creature* c, function<void(int)> func = nullptr);
-	void GetDamage(int damage);
+	virtual void Attack(shared_ptr<Creature> c);
+	//virtual void Attack(Creature* c, function<void(int)> func = nullptr);
+	virtual void GetDamage(int damage, shared_ptr<Creature> c = nullptr);
 
 protected:
 	string _name;

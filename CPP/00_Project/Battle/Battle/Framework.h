@@ -8,6 +8,7 @@
 #include <map>
 #include <functional>
 #include <algorithm>
+#include <memory>
 
 using namespace std;
 

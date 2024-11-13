@@ -10,7 +10,8 @@ public:
     bool CheckResult();
 
 private:
-    vector<Creature*> Players;
-    Boss* _boss;
+    vector<shared_ptr<Creature>> Players;
+    shared_ptr<Creature> _boss;
+    
 };
 

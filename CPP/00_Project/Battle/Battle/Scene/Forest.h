@@ -12,6 +12,6 @@ public:
     
 
 private:
-    vector<Creature*> goblins;
+    vector<shared_ptr<Creature>> goblins;
 };
 

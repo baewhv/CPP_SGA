@@ -23,23 +23,41 @@ void Cave::PlayScene()
 void Cave::AttackBoss()
 {
 	Players.push_back(GETPLAYER);
-	_boss = new Boss();
+	_boss = make_shared<Boss>();
+	auto _castBoss = dynamic_pointer_cast<Boss>(_boss);
 	for (int i = 0; i < 9; i++)
 	{
-		Players.push_back(new Knight(i+1));
+		shared_ptr<Creature> temp;
+		switch (rand()%3)
+		{
+		case 0:
+			temp = make_shared<Knight>(i + 1);
+			break;
+		case 1:
+			temp = make_shared<Archer>(i + 1);
+			break;
+		case 2:
+			temp = make_shared<Mage>(i + 1);
+			break;
+		default:
+			break;
+		}
+		Players.push_back(temp);
 	}
 
 	while (true)
 	{
 		for (auto it : Players)
 		{
-			Boss::GetDamaged dmg;
-			dmg._target = it;
-			dmg._boss = _boss;
-			it->Attack(_boss, dmg);
+			it->Attack(_boss);
 		}
 		
-		_boss->Attack();
+
+		
+		if (_castBoss != nullptr)
+		{
+			_castBoss->Attack();
+		}
 				
 		if (Players.size() == 0 || !_boss->isAlive())
 		{
