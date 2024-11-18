@@ -1,5 +1,6 @@
 #pragma once
 class Creature;
+class World;
 
 class GameManager
 {
@@ -25,6 +26,6 @@ private:
 
 	static GameManager* _inst;
 	shared_ptr<Creature> _p;
-	class World* _w;
+	shared_ptr<World> _w;
 };
 

@@ -10,7 +10,8 @@ void Boss::GetDamage(int damage, shared_ptr<Creature> c)
 	{
 		if (!it->_ptr.expired())
 		{
-			if (it->_ptr.lock() == c)
+			//비교 시 실제 내용물이 같은지 확인할 것.
+			if (it->_ptr.lock().get() == c.get())
 			{
 				it->_totalDamage += damage;
 				break;

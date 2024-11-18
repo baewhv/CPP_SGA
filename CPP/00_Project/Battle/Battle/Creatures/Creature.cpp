@@ -14,7 +14,7 @@ void Creature::Attack(shared_ptr<Creature> target)
 	if (target != nullptr && target->isAlive())
 	{
 		cout << endl << _name << "'s attack! " << endl;
-		
+		//
 		target->GetDamage(_atk, shared_from_this());
 	}
 }

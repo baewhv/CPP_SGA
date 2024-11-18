@@ -52,13 +52,13 @@ void GameManager::SelectLocation()
 	switch (InputManager::GetInstance()->IntInput(1, 3))
 	{
 	case 1:
-		_w = new Town();
+		_w = make_shared<Town>();
 		break;
 	case 2:
-		_w = new Forest();
+		_w = make_shared<Forest>();
 		break;
 	case 3:
-		_w = new Cave();
+		_w = make_shared<Cave>();
 		break;
 	}
 }
@@ -67,7 +67,7 @@ void GameManager::LoadScene()
 {
 	if (_w == nullptr)
 	{
-		_w = new Lobby();
+		_w = make_shared<Lobby>();
 	}
 	_w->PlayScene();
 }
