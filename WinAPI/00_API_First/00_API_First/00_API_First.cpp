@@ -120,15 +120,41 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_PAINT    - 주 창을 그립니다.
 //  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
 //
+// 
 //
+
+Vector mousePos;
+
 shared_ptr<CircleCollider> myCircle = make_shared<CircleCollider>(Vector(200, 200), 50);
-shared_ptr<BoxCollider> myBox = make_shared<BoxCollider>(Vector(100, 100), 100, 200);
+shared_ptr<RectCollider> myBox = make_shared<RectCollider>(Vector(100, 100), Vector(100, 200));
 shared_ptr<Line> myLine = make_shared<Line>(Vector(150, 150), Vector(300, 300));
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_CREATE: //창이 만들어질 때 1회 실행되는 메세지
+    {
+        SetTimer(hWnd, 1, 1, nullptr); //1ms 마다 wmTimer메세지 처리.
+        break;
+    }
+    case WM_TIMER: //
+    {
+        myCircle->Update();
+        myBox->Update();
+        myLine->Update();
+
+        InvalidateRect(hWnd, nullptr, true);
+        //창 비활성화 / 핸들 /사각형 범위/ 지울것인가?
+        break;
+    }
+    case WM_MOUSEMOVE: //마우스 움직임을 전달받는 메세지.
+    {
+        mousePos._x = static_cast<float>(LOWORD(lParam));
+        mousePos._y = static_cast<float>(HIWORD(lParam));
+        break;
+    }
+
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -151,8 +177,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+            myCircle->Center() = mousePos;
             myCircle->Render(hdc);
+
+            myBox->Center() = Lerp(myBox->Center(), mousePos, 0.1f);   //선형 보간
             myBox->Render(hdc);
+            myLine->End() = mousePos;
             myLine->Render(hdc);
 
             EndPaint(hWnd, &ps);

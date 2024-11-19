@@ -23,12 +23,14 @@
 
 using namespace std;
 
+#include "Types.h"
+
 //Math
 #include <Math/Vector.h>
 
 //Contents
 #include <Contents/Objects/CircleCollider.h>
-#include <Contents/Objects/BoxCollider.h>
+#include <Contents/Objects/RectCollider.h>
 #include <Contents/Objects/Line.h>
 
 

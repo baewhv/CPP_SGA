@@ -1,24 +1,24 @@
 #include "framework.h"
-#include "BoxCollider.h"
+#include "RectCollider.h"
 
-BoxCollider::BoxCollider(Vector center, float width, float height)
-	:_center(center), _width(width), _height(height)
+RectCollider::RectCollider(Vector center, Vector size)
+	:_center(center), _halfSize(size * 0.5f)
 {
 }
 
-BoxCollider::~BoxCollider()
+RectCollider::~RectCollider()
 {
 }
 
-void BoxCollider::Update()
+void RectCollider::Update()
 {
 }
 
-void BoxCollider::Render(HDC hdc)
+void RectCollider::Render(HDC hdc)
 {
-	Rectangle(hdc, _center._x - _width / 2,
-		_center._y - _height / 2,
-		_center._x + _width / 2,
-		_center._y + _height / 2
+	Rectangle(hdc, _center._x - _halfSize._x,
+		_center._y - _halfSize._y,
+		_center._x + _halfSize._x,
+		_center._y + _halfSize._y
 	);
 }
