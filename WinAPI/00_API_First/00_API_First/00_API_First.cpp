@@ -125,9 +125,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 Vector mousePos;
 
-shared_ptr<CircleCollider> myCircle = make_shared<CircleCollider>(Vector(200, 200), 50);
-shared_ptr<RectCollider> myBox = make_shared<RectCollider>(Vector(100, 100), Vector(100, 200));
-shared_ptr<Line> myLine = make_shared<Line>(Vector(150, 150), Vector(300, 300));
+shared_ptr<Program> program = make_shared<Program>();
+
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -140,9 +139,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
     case WM_TIMER: //
     {
-        myCircle->Update();
-        myBox->Update();
-        myLine->Update();
+        program->Update();
 
         InvalidateRect(hWnd, nullptr, true);
         //창 비활성화 / 핸들 /사각형 범위/ 지울것인가?
@@ -177,13 +174,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-            myCircle->Center() = mousePos;
-            myCircle->Render(hdc);
 
-            myBox->Center() = Lerp(myBox->Center(), mousePos, 0.1f);   //선형 보간
-            myBox->Render(hdc);
-            myLine->End() = mousePos;
-            myLine->Render(hdc);
+            program->Render(hdc);
 
             EndPaint(hWnd, &ps);
         }

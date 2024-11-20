@@ -33,4 +33,10 @@ using namespace std;
 #include <Contents/Objects/RectCollider.h>
 #include <Contents/Objects/Line.h>
 
+#include <Scene/Scene.h>
+
+#include <Program/Program.h>
+
+extern Vector mousePos;	//어디서든 이 객체를 읽을 수 있도록.
+
 

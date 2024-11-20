@@ -148,19 +148,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="00_API_First.h" />
-    <ClInclude Include="Contents\Objects\BoxCollider.h" />
     <ClInclude Include="Contents\Objects\CircleCollider.h" />
+    <ClInclude Include="Contents\Objects\RectCollider.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Contents\Objects\Line.h" />
     <ClInclude Include="Math\Vector.h" />
+    <ClInclude Include="Scene\PaintScene.h" />
+    <ClInclude Include="Program\Program.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="00_API_First.cpp" />
-    <ClCompile Include="Contents\Objects\BoxCollider.cpp" />
     <ClCompile Include="Contents\Objects\CircleCollider.cpp" />
+    <ClCompile Include="Contents\Objects\RectCollider.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">framework.h</PrecompiledHeaderFile>
@@ -172,6 +175,9 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">framework.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="Contents\Objects\Line.cpp" />
+    <ClCompile Include="Scene\PaintScene.cpp" />
+    <ClCompile Include="Program\Program.cpp" />
+    <ClCompile Include="Scene\Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="00_API_First.rc" />
