@@ -16,6 +16,8 @@ PaintScene::PaintScene()
 		_brushes.push_back(CreateSolidBrush(RGB(25,255,25)));
 		_brushes.push_back(CreateSolidBrush(RGB(25,25,255)));
 	}
+
+	
 }
 
 PaintScene::~PaintScene()

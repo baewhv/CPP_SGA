@@ -29,9 +29,10 @@ using namespace std;
 #include <Math/Vector.h>
 
 //Contents
+#include <Contents/Objects/Line.h>
+#include <Contents/Objects/Collider.h>
 #include <Contents/Objects/CircleCollider.h>
 #include <Contents/Objects/RectCollider.h>
-#include <Contents/Objects/Line.h>
 
 #include <Scene/Scene.h>
 
