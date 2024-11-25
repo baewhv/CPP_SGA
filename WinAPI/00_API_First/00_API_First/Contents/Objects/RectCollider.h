@@ -2,6 +2,12 @@
 class RectCollider : public Collider
 {
 public:
+	struct OBB_INFO
+	{
+		Vector position;
+		Vector Direction[2];
+		float length[2];
+	};
 	RectCollider(Vector center, Vector size);
 	~RectCollider();
 
@@ -14,10 +20,13 @@ public:
 
 	Vector& HalfSize() { return _halfSize; }
 
-	int Left() { return _center._x - _halfSize._x; }
-	int Right() { return _center._x + _halfSize._x; }
-	int Top() { return _center._y - _halfSize._y; }
-	int Bottom() { return _center._y + _halfSize._y; }
+	int Left() const { return _center._x - _halfSize._x; }
+	int Right() const { return _center._x + _halfSize._x; }
+	int Top() const { return _center._y - _halfSize._y; }
+	int Bottom() const { return _center._y + _halfSize._y; }
+
+	OBB_INFO GetOBB() const;
+	float SeparateAxis(Vector separate, Vector e1, Vector e2) const;
 
 private:
 

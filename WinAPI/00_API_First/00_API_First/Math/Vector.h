@@ -10,11 +10,11 @@ public:
 	Vector(const Vector& other) :_x(other._x), _y(other._y) {}
 	~Vector() {}
 
-	Vector Dot(const Vector& other) const
+	float Dot(const Vector& other) const
 	{
-		Vector result;
-		result._x = this->_x * other._x;
-		result._y = this->_y * other._y;
+		float result;
+		result = (this->_x * other._x) + (this->_y * other._y);
+		
 		return result;
 	}
 	float Cross(const Vector& other)const
@@ -45,9 +45,18 @@ public:
 	}
 	Vector NormalVector() const
 	{
-		return Vector(_x/Length(), _y/Length());
+		float length = Length();
+
+		return Vector(_x / length, _y / length);
 	}
 
+	void Normalize()
+	{
+		float length = Length();
+
+		_x /= length;
+		_y /= length;
+	}
 
 public:
 	float _x;

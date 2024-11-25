@@ -4,6 +4,15 @@ class RectCollider;
 
 class Collider : public enable_shared_from_this<Collider>
 {
+protected:
+	enum Type
+	{
+		NONE,
+		CIRCLE,
+		RECT,
+	};
+
+
 public:
 	Collider();
 	virtual ~Collider();
@@ -21,6 +30,7 @@ public:
 	virtual bool IsCollision(shared_ptr<RectCollider> other) const abstract;
 
 protected:
+	Type _type = NONE;
 	int _curColor = 1;
 	HPEN _colors[2];
 

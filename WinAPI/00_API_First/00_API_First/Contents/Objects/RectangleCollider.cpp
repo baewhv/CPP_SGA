@@ -6,10 +6,7 @@ RectangleCollider::RectangleCollider(Vector center, Vector size, float angle)
 	, _angle(angle)
 {
 	_center = center;
-
-
-
-	
+	_type = RECT;
 }
 
 void RectangleCollider::Update()

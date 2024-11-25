@@ -11,25 +11,26 @@ Collider::~Collider()
 
 bool Collider::IsCollision(shared_ptr<Collider> collider) const
 {
-	auto rect = dynamic_pointer_cast<RectCollider>(collider);
-	auto circle = dynamic_pointer_cast<CircleCollider>(collider);
-
-	if (rect != nullptr)
+	switch (collider->_type)
 	{
-		return shared_from_this()->IsCollision(rect);
-	}
-	else if(circle != nullptr)
+	case Collider::NONE:
+		return false;
+	case Collider::CIRCLE:
 	{
-		return shared_from_this()->IsCollision(circle);
+		auto circle = dynamic_pointer_cast<CircleCollider>(collider);
+		if (circle != nullptr)
+			return IsCollision(circle);
+		break;
 	}
+	case Collider::RECT:
+	{
+		auto rect = dynamic_pointer_cast<RectCollider>(collider);
+		return IsCollision(rect);
+	}
+	default:
+		break;
+	}
+
 	return false;
 }
 
-bool Collider::IsCollision(const Vector& pos) const
-{
-	return false;
-}
-bool Collider::IsCollision(shared_ptr<RectCollider> other) const
-{
-	return false;
-}
