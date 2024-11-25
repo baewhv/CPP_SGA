@@ -36,6 +36,7 @@ using namespace std;
 #include <Contents/Objects/Collider.h>
 #include <Contents/Objects/CircleCollider.h>
 #include <Contents/Objects/RectCollider.h>
+#include <Contents/Objects/RectangleCollider.h>
 
 //Scene
 #include <Scene/Scene.h>

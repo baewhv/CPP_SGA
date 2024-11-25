@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="00_API_First.h" />
     <ClInclude Include="Contents\Objects\Collider.h" />
+    <ClInclude Include="Contents\Objects\RectangleCollider.h" />
     <ClInclude Include="Scene\CollisionScene.h" />
     <ClInclude Include="Contents\Objects\CircleCollider.h" />
     <ClInclude Include="Contents\Objects\RectCollider.h" />
@@ -165,6 +166,7 @@
   <ItemGroup>
     <ClCompile Include="00_API_First.cpp" />
     <ClCompile Include="Contents\Objects\Collider.cpp" />
+    <ClCompile Include="Contents\Objects\RectangleCollider.cpp" />
     <ClCompile Include="Scene\CollisionScene.cpp" />
     <ClCompile Include="Contents\Objects\CircleCollider.cpp" />
     <ClCompile Include="Contents\Objects\RectCollider.cpp" />

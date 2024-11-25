@@ -7,6 +7,7 @@ CollisionScene::CollisionScene()
 	cursorRect = make_shared<RectCollider>(Vector(100, 100), Vector(100, 100));
 	myCircle = make_shared<CircleCollider>(Vector(400, 400), 100);
 	myRect1 = make_shared<RectCollider>(Vector(800, 400), Vector(200, 200));
+	myRectAngle = make_shared<RectangleCollider>(Vector(800, 400), Vector(200, 200), 0.0f);
 }
 
 CollisionScene::~CollisionScene()
@@ -35,6 +36,7 @@ void CollisionScene::Update()
 	myRect1->Update();
 	//cursorCircle->Update();
 	cursorRect->Update();
+	myRectAngle->Update();
 
 
 }
@@ -45,5 +47,6 @@ void CollisionScene::Render(HDC hdc)
 	myRect1->Render(hdc);
 	//cursorCircle->Render(hdc);
 	cursorRect->Render(hdc);
+	myRectAngle->Render(hdc);
 
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#define PI 3.141592f
+#define PI 3.1415926535f
 
 #define Lerp(s,e,t) s + (e - s) * t
 
