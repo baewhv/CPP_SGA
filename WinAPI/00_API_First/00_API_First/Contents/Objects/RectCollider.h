@@ -12,6 +12,8 @@ public:
 	virtual bool IsCollision(shared_ptr<CircleCollider> other) const override;
 	virtual bool IsCollision(shared_ptr<RectCollider> other) const override;
 
+	Vector& HalfSize() { return _halfSize; }
+
 	int Left() { return _center._x - _halfSize._x; }
 	int Right() { return _center._x + _halfSize._x; }
 	int Top() { return _center._y - _halfSize._y; }

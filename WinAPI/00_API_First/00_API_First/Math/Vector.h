@@ -23,19 +23,19 @@ public:
 		result = this->_x * other._y - this->_y * other._x;
 		return result;
 	}
-	float Length() const
+	float Length() const                        //피타고라스의 정의를 이용해 길이를 계산
 	{
 		return sqrtf((_x * _x) + (_y * _y));  //피타고라스
 	}
 
-	Vector operator+(const Vector& other) const
+	Vector operator+(const Vector& other) const  //벡터 합 - 위치벡터 -> 두 벡터를 합친 위치를 표기
 	{
 		Vector result;
 		result._x = this->_x + other._x;
 		result._y = this->_y + other._y;
 		return result;
 	}
-	Vector operator-(const Vector& other) const
+	Vector operator-(const Vector& other) const //벡터 차 - 거리 계산(하나를 기준으로 두고 벡터간 거리를 계산할 수 있다.
 	{
 		return Vector(_x - other._x, _y - other._y);
 	}

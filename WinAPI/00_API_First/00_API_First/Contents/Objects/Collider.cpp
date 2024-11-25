@@ -18,9 +18,9 @@ bool Collider::IsCollision(shared_ptr<Collider> collider) const
 	{
 		return shared_from_this()->IsCollision(rect);
 	}
-	else
+	else if(circle != nullptr)
 	{
-
+		return shared_from_this()->IsCollision(circle);
 	}
 	return false;
 }

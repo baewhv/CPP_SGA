@@ -15,10 +15,13 @@
 #include <tchar.h>
 #include <math.h>
 
+//smart pointer
 #include <memory>
+//container
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
+//string
 #include <string>
 
 using namespace std;
@@ -34,8 +37,10 @@ using namespace std;
 #include <Contents/Objects/CircleCollider.h>
 #include <Contents/Objects/RectCollider.h>
 
+//Scene
 #include <Scene/Scene.h>
 
+//Program
 #include <Program/Program.h>
 
 extern Vector mousePos;	//어디서든 이 객체를 읽을 수 있도록.

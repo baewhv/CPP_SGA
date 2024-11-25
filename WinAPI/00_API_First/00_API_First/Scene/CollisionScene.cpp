@@ -3,8 +3,10 @@
 
 CollisionScene::CollisionScene()
 {
-	myCircle1 = make_shared<CircleCollider>(Vector(100, 100), 100);
-	myCircle2 = make_shared<CircleCollider>(Vector(400, 400), 100);
+	cursorCircle = make_shared<CircleCollider>(Vector(100, 100), 100);
+	cursorRect = make_shared<RectCollider>(Vector(100, 100), Vector(100, 100));
+	myCircle = make_shared<CircleCollider>(Vector(400, 400), 100);
+	myRect1 = make_shared<RectCollider>(Vector(800, 400), Vector(200, 200));
 }
 
 CollisionScene::~CollisionScene()
@@ -13,21 +15,35 @@ CollisionScene::~CollisionScene()
 
 void CollisionScene::Update()
 {
-	myCircle1->Center() = mousePos;
+	cursorCircle->Center() = mousePos;
+	cursorRect->Center() = mousePos;
 
-	if (myCircle2->IsCollision(myCircle1))
-		myCircle2->SetRed();
+	if (myCircle->IsCollision(cursorRect))
+		myCircle->SetRed();
 	else
-		myCircle2->SetGreen();
-	myCircle1->Update();
-	myCircle2->Update();
-	
+		myCircle->SetGreen();
+
+	if (myRect1->IsCollision(cursorRect))
+		myRect1->SetRed();
+	else
+		myRect1->SetGreen();
+	//if (cursorCircle->IsCollision(myRect1))
+	//	myRect1->SetRed();
+	//else
+	//	myRect1->SetGreen();
+	myCircle->Update();
+	myRect1->Update();
+	//cursorCircle->Update();
+	cursorRect->Update();
+
+
 }
 
 void CollisionScene::Render(HDC hdc)
 {
-
-	myCircle1->Render(hdc);
-	myCircle2->Render(hdc);
+	myCircle->Render(hdc);
+	myRect1->Render(hdc);
+	//cursorCircle->Render(hdc);
+	cursorRect->Render(hdc);
 
 }
