@@ -43,17 +43,18 @@ bool CircleCollider::IsCollision(shared_ptr<CircleCollider> other) const
 }
 bool CircleCollider::IsCollision(shared_ptr<RectCollider> other) const
 {
-	Vector LT(other->Center()._x - other->HalfSize()._x, other->Center()._y - other->HalfSize()._y);
-	Vector RT(other->Center()._x + other->HalfSize()._x, other->Center()._y - other->HalfSize()._y);
-	Vector LB(other->Center()._x - other->HalfSize()._x, other->Center()._y + other->HalfSize()._y);
-	Vector RB(other->Center()._x + other->HalfSize()._x, other->Center()._y + other->HalfSize()._y); 
+	//Vector LT(other->Center()._x - other->HalfSize()._x, other->Center()._y - other->HalfSize()._y);
+	//Vector RT(other->Center()._x + other->HalfSize()._x, other->Center()._y - other->HalfSize()._y);
+	//Vector LB(other->Center()._x - other->HalfSize()._x, other->Center()._y + other->HalfSize()._y);
+	//Vector RB(other->Center()._x + other->HalfSize()._x, other->Center()._y + other->HalfSize()._y); 
 
-	if (IsCollision(LT) || IsCollision(RT) || IsCollision(LB) || IsCollision(RB)||
-		(_radius + other->HalfSize()._x >= abs(other->Center()._x - _center._x) && (other->Center()._y + other->HalfSize()._y >= _center._y && other->Center()._y - other->HalfSize()._y <= _center._y))
-		||(_radius + other->HalfSize()._y >= abs(other->Center()._y - _center._y) && (other->Center()._x + other->HalfSize()._x >= _center._x && other->Center()._x - other->HalfSize()._x <= _center._x))
-		)
-		return true;
+	//if (IsCollision(LT) || IsCollision(RT) || IsCollision(LB) || IsCollision(RB)||
+	//	(_radius + other->HalfSize()._x >= abs(other->Center()._x - _center._x) && (other->Center()._y + other->HalfSize()._y >= _center._y && other->Center()._y - other->HalfSize()._y <= _center._y))
+	//	||(_radius + other->HalfSize()._y >= abs(other->Center()._y - _center._y) && (other->Center()._x + other->HalfSize()._x >= _center._x && other->Center()._x - other->HalfSize()._x <= _center._x))
+	//	)
+	//	return true;
 
 
-	return false;
+	//return false;
+	return dynamic_pointer_cast<Collider>(other)->IsCollision(const_pointer_cast<Collider>(shared_from_this()));
 }

@@ -14,6 +14,7 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC hdc) override;
 
+	//virtual bool IsCollision(shared_ptr<Collider> collider) const;
 	virtual bool IsCollision(const Vector& pos) const override;
 	virtual bool IsCollision(shared_ptr<CircleCollider> other) const override;
 	virtual bool IsCollision(shared_ptr<RectCollider> other) const override;

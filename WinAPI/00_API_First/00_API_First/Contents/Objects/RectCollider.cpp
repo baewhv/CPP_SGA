@@ -37,10 +37,62 @@ bool RectCollider::IsCollision(const Vector& pos) const
 		return true;
 	return false;
 }
+//bool RectCollider::IsCollision(shared_ptr<Collider> other) const
+//{
+//	switch (other->getType())
+//	{
+//	case Collider::NONE:
+//
+//		break;
+//	case Collider::CIRCLE:
+//	{
+//		auto circle = dynamic_pointer_cast<CircleCollider>(other);
+//		if (circle != nullptr)
+//			return IsCollision(circle);
+//		break;
+//	}
+//	case Collider::RECT:
+//	{
+//		auto rect = dynamic_pointer_cast<RectCollider>(other);
+//		return IsCollision(rect);
+//	}
+//	default:
+//		break;
+//	}
+//	return false;
+//}
 
 bool RectCollider::IsCollision(shared_ptr<CircleCollider> other) const
 {
-	return false;
+	//obb
+	OBB_INFO a = GetOBB();
+	//¡ﬂΩ… ≥¢∏Æ ø¨∞·µ» ∫§≈Õ.fp
+	Vector aTob = other->Center() - a.position;
+
+
+	float d = sqrtf(a.length[0] * a.length[0] + a.length[1] * a.length[1]) + other->Radius();
+	if (d < aTob.Length())
+		return false;
+
+	//∞¢ ∫Ø¿« ≥Î∏ª∫§≈Õ π◊ ∫§≈Õ
+	Vector normal_ea1 = a.Direction[0].NormalVector();
+	Vector ea1 = a.Direction[0];
+	Vector normal_ea2 = a.Direction[1].NormalVector();
+	Vector ea2 = a.Direction[1];
+
+	float length = abs(normal_ea1.Dot(aTob));
+	float lengthB = other->Radius();
+	float lengthA = a.length[0];
+	if (length > lengthB + lengthA)
+		return false;
+
+	length = abs(normal_ea2.Dot(aTob));
+	lengthB = other->Radius();
+	lengthA = a.length[1];
+	if (length > lengthB + lengthA)
+		return false;
+
+	return true;
 }
 
 bool RectCollider::IsCollision(shared_ptr<RectCollider> other) const
@@ -49,7 +101,7 @@ bool RectCollider::IsCollision(shared_ptr<RectCollider> other) const
 	//float bigLeft = max(Left(), other->Left());
 	//float smallRight = min(Right(), other->Right());
 	//float bigBottom = max(Top(), other->Top());
-	//float smallTop = min(Bottom(), other->Bottom());
+	//float smallTop = min(Bottom(), othe0r->Bottom());
 
 	//if (bigLeft - smallRight <= 0 && bigBottom - smallTop <= 0)
 	//	return true;
@@ -58,7 +110,7 @@ bool RectCollider::IsCollision(shared_ptr<RectCollider> other) const
 	OBB_INFO a = GetOBB();
 	OBB_INFO b = other->GetOBB();
 
-	//¡ﬂΩ… ≥¢∏Æ ø¨∞·µ» ∫§≈Õ.
+	//¡ﬂΩ… ≥¢∏Æ ø¨∞·µ» ∫§≈Õ.fp
 	Vector aTob = b.position - a.position;
 
 	//∞¢ ∫Ø¿« ≥Î∏ª∫§≈Õ π◊ ∫§≈Õ
