@@ -60,6 +60,12 @@
     <ClInclude Include="Contents\Objects\RectangleCollider.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Contents\GameObject\Cannon.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\CannonScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="00_API_First.cpp">
@@ -93,6 +99,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Contents\Objects\RectangleCollider.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Contents\GameObject\Cannon.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\CannonScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

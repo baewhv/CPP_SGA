@@ -148,6 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="00_API_First.h" />
+    <ClInclude Include="Scene\CannonScene.h" />
+    <ClInclude Include="Contents\GameObject\Cannon.h" />
     <ClInclude Include="Contents\Objects\Collider.h" />
     <ClInclude Include="Contents\Objects\RectangleCollider.h" />
     <ClInclude Include="Scene\CollisionScene.h" />
@@ -165,6 +167,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="00_API_First.cpp" />
+    <ClCompile Include="Scene\CannonScene.cpp" />
+    <ClCompile Include="Contents\GameObject\Cannon.cpp" />
     <ClCompile Include="Contents\Objects\Collider.cpp" />
     <ClCompile Include="Contents\Objects\RectangleCollider.cpp" />
     <ClCompile Include="Scene\CollisionScene.cpp" />
