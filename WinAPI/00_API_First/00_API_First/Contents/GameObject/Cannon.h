@@ -13,6 +13,7 @@ public:
 	float& Angle(float& angle) {return _angle; }
 	const Vector& GetCenter() { return _body->Center(); }
 
+	void Fire();
 	void Ready() { _barrel->SetCannon(shared_from_this()); }
 private:
 	// 입력으로 좌우로 움직이게 만드는 함수
@@ -26,5 +27,6 @@ private:
 	shared_ptr<CircleCollider> _body;
 	//shared_ptr<Line> _barrel;
 	shared_ptr<class Barrel> _barrel;
+	shared_ptr<class Ball> _ball;
 	float _angle = 0.0f;
 };

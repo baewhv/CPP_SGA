@@ -43,6 +43,20 @@ public:
 	{
 		return Vector(_x * value, _y * value);
 	}
+
+	Vector& operator=(const Vector& other)
+	{
+		_x = other._x;
+		_y = other._y;
+		return *this;
+	}
+	Vector& operator+=(const Vector& other)
+	{
+		_x += other._x;
+		_y += other._y;
+		return *this;
+	}
+
 	Vector NormalVector() const
 	{
 		float length = Length();

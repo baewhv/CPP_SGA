@@ -9,7 +9,9 @@ public:
 	void Render(HDC hdc);
 
 	void SetCannon(shared_ptr<class Cannon> cannon) { _cannon = cannon; }
-	
+	void SetDirection(Vector dir) { _dir = dir; }
+	Vector& GetDirection() { return _dir; }
+	float GetLength() { return _length; }
 	
 
 private:

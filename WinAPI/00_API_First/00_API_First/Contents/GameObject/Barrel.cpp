@@ -16,8 +16,8 @@ void Barrel::Update()
 	if (_cannon.expired())
 		return;
 	_line->_start = _cannon.lock()->GetCenter();
-	_line->End() = _line->_start + ((mousePos - _line->_start).NormalVector() * 150);
-	//_line->_end = _line->_start + _dir * _length;
+	
+	_line->_end = _line->_start + _dir * _length;
 
 	_line->Update();
 }
