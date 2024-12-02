@@ -1,5 +1,7 @@
 #pragma once
-class Cannon
+#include "Barrel.h"
+
+class Cannon : public enable_shared_from_this<Cannon>
 {
 public:
 	Cannon();
@@ -8,17 +10,21 @@ public:
 	void Update();
 	void Render(HDC hdc);
 
+	float& Angle(float& angle) {return _angle; }
+	const Vector& GetCenter() { return _body->Center(); }
+
+	void Ready() { _barrel->SetCannon(shared_from_this()); }
 private:
 	// 입력으로 좌우로 움직이게 만드는 함수
 	void InputMove();
 	// 입력으로 총신의 각도가 +,-가 되게 만드는 함수
 	void InputBarrelRotation();
 
-	float& Angle(float& angle) {return _angle; }
-
+	
 
 private:
 	shared_ptr<CircleCollider> _body;
-	shared_ptr<Line> _barrel;
+	//shared_ptr<Line> _barrel;
+	shared_ptr<class Barrel> _barrel;
 	float _angle = 0.0f;
 };
