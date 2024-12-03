@@ -2,6 +2,10 @@
 
 #define PI 3.1415926535f
 
+#define WIN_WIDTH 1280
+#define WIN_HEIGHT 720
+
+
 #define Lerp(s,e,t) s + (e - s) * t
 
 #define RED RGB(255,0,0)

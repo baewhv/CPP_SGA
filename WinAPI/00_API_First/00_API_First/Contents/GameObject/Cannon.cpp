@@ -8,7 +8,11 @@ Cannon::Cannon()
 	_body = make_shared<CircleCollider>(Vector(350, 350), 50);
 	//_barrel = make_shared<Line>(_body->Center(), _body->Center() + Vector(150, 0));
 	_barrel = make_shared<Barrel>();
-	_ball = make_shared<Ball>();
+	for (int i = 0; i < _poolCount; i++)
+	{
+		_balls.push_back(make_shared<Ball>());
+	}
+	
 }
 
 Cannon::~Cannon()
@@ -17,34 +21,42 @@ Cannon::~Cannon()
 
 void Cannon::Update()
 {
+	_body->Update();
+	_barrel->Update();
+	for (auto b : _balls)
+	{
+		b->Update();
+	}
+
 	InputMove();
 	InputBarrelRotation();
 	Fire();
 	// ÃÑ½Å Á¶Á¤
-
-	_body->Update();
-	_barrel->Update();
-	_ball->Update();
 }
 
 void Cannon::Render(HDC hdc)
 {
 	_barrel->Render(hdc);
 	_body->Render(hdc);
-	_ball->Render(hdc);
+	for (auto b : _balls)
+	{
+		b->Render(hdc);
+	}
 }
 
 void Cannon::Fire()
 {
 	if (GetAsyncKeyState(VK_SPACE) & 0x8001)
 	{
-		if (_ball->IsFired() == false)
-		{
-			_ball->IsFired() = true;
-			_ball->SetPosition(_body->Center() + _barrel->GetDirection() * _barrel->GetLength());
-			_ball->SetDirection(_barrel->GetDirection());
-			_ball->SetSpeed(3);
-		}
+
+		auto iter = std::find_if(_balls.begin(), _balls.end(), [](const shared_ptr<Ball>& ball) -> bool {
+			if (ball->IsFired() == false)
+				return true;
+			return false;
+			});
+		if (iter == _balls.end()) return;
+
+		(*iter)->Fire(_barrel->GetMuzzle(), _barrel->GetDirection());
 	}
 }
 

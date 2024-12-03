@@ -27,6 +27,7 @@ private:
 	shared_ptr<CircleCollider> _body;
 	//shared_ptr<Line> _barrel;
 	shared_ptr<class Barrel> _barrel;
-	shared_ptr<class Ball> _ball;
+	vector<shared_ptr<class Ball>> _balls;
+	int _poolCount = 30;
 	float _angle = 0.0f;
 };
