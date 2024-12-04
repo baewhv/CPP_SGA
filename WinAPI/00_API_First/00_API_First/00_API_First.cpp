@@ -137,7 +137,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_CREATE: //창이 만들어질 때 1회 실행되는 메세지
     {
-        SetTimer(hWnd, 1, 1, nullptr); //1ms 마다 wmTimer메세지 처리.
+        SetTimer(hWnd, 1, 10, nullptr); //10ms 마다 wmTimer메세지 처리.
         break;
     }
     case WM_TIMER: //

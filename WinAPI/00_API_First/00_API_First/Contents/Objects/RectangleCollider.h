@@ -8,18 +8,21 @@ public:
 
     void Update() override;
     void Render(HDC hdc) override;
+
     bool IsCollision(const Vector& pos) const override;
     bool IsCollision(shared_ptr<CircleCollider> other) const override;
     bool IsCollision(shared_ptr<RectCollider> other) const override;
+    Vector& Direction() { return _direction; }
 
 private:
     Vector _halfSize;
-    float _angle;
+    Vector _direction;
     Vector _topLeft;
     Vector _topRight;
     Vector _bottomRight;
     Vector _bottomLeft;
 
-    void SetAnglePoint();
+    void AngleToDir(float angle);
+    void SetAngle();
 };
 

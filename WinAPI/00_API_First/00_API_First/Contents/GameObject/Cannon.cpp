@@ -30,7 +30,7 @@ void Cannon::Update()
 
 	InputMove();
 	InputBarrelRotation();
-	Fire();
+	InputFire();
 	// 총신 조정
 }
 
@@ -46,16 +46,15 @@ void Cannon::Render(HDC hdc)
 
 void Cannon::Fire()
 {
-	if (GetAsyncKeyState(VK_SPACE) & 0x8001)
+	if (_shootStandby == true)
 	{
-
+		_shootStandby = false;
 		auto iter = std::find_if(_balls.begin(), _balls.end(), [](const shared_ptr<Ball>& ball) -> bool {
 			if (ball->IsFired() == false)
 				return true;
 			return false;
 			});
 		if (iter == _balls.end()) return;
-
 		(*iter)->Fire(_barrel->GetMuzzle(), _barrel->GetDirection());
 	}
 }
@@ -89,6 +88,14 @@ void Cannon::InputBarrelRotation()
 	// 방향키 아래를 누르면 총신의 각도가 -가 되게하기.
 
 	_barrel->SetDirection((mousePos - _body->Center()).NormalVector());
+}
+
+void Cannon::InputFire()
+{
+	if (GetAsyncKeyState(VK_SPACE) & 0x8001)
+		Fire();
+	else
+		_shootStandby = true;
 }
 
 

@@ -16,6 +16,7 @@ public:
 
 private:
 	shared_ptr<Line> _line;
+	shared_ptr<RectangleCollider> _barrel;
 
 	float _length = 150.0f;
 	Vector _dir = Vector(1,0);

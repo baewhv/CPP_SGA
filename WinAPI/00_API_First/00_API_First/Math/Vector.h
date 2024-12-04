@@ -70,12 +70,13 @@ public:
 		return Vector(_x / length, _y / length);
 	}
 
-	void Normalize()
+	Vector& Normalize()
 	{
 		float length = Length();
 
 		_x /= length;
 		_y /= length;
+		return *this;
 	}
 
 public:

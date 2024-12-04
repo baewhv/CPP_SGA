@@ -3,15 +3,15 @@
 
 RectangleCollider::RectangleCollider(Vector center, Vector size, float angle)
 	: _halfSize(size * 0.5f)
-	, _angle(angle)
 {
 	_center = center;
 	_type = RECT;
+	AngleToDir(angle);
 }
 
 void RectangleCollider::Update()
 {
-	SetAnglePoint();
+	SetAngle();
 }
 
 void RectangleCollider::Render(HDC hdc)
@@ -38,18 +38,16 @@ bool RectangleCollider::IsCollision(shared_ptr<RectCollider> other) const
 	return false;
 }
 
-void RectangleCollider::SetAnglePoint()
+void RectangleCollider::AngleToDir(float angle)
 {
-	float angleRadians = _angle * (PI / 180.0f);
+	float angleRadians = angle * (PI / 180.0f);
+	_direction = Vector(std::cos(angleRadians), std::sin(angleRadians)).Normalize();
+}
 
-	// 끝점에서 시작점을 뺀 상대 좌표 계산
-
-	// 회전 변환 적용
-	float cosTheta = std::cos(angleRadians);
-	float sinTheta = std::sin(angleRadians);
-
-	_topLeft = Vector(_center._x + cosTheta * -_halfSize._x - sinTheta * -_halfSize._y, _center._y + sinTheta * -_halfSize._x + cosTheta * -_halfSize._y);
-	_topRight = Vector(_center._x + cosTheta * _halfSize._x - sinTheta * -_halfSize._y, _center._y + sinTheta * _halfSize._x + cosTheta * -_halfSize._y);
-	_bottomRight = Vector(_center._x + cosTheta * _halfSize._x - sinTheta * _halfSize._y, _center._y + sinTheta * _halfSize._x + cosTheta * _halfSize._y);
-	_bottomLeft = Vector(_center._x + cosTheta * -_halfSize._x - sinTheta * _halfSize._y, _center._y + sinTheta * -_halfSize._x + cosTheta * _halfSize._y);
+void RectangleCollider::SetAngle()
+{
+	_topLeft = _center + Vector(_direction._x * -_halfSize._x - _direction._y * -_halfSize._y, _direction._y * -_halfSize._x + _direction._x * -_halfSize._y);
+	_topRight = _center + Vector(_direction._x * _halfSize._x - _direction._y * -_halfSize._y, _direction._y * _halfSize._x + _direction._x * -_halfSize._y);
+	_bottomRight = _center + Vector(_direction._x * _halfSize._x - _direction._y * _halfSize._y, _direction._y * _halfSize._x + _direction._x * _halfSize._y);
+	_bottomLeft = _center + Vector(_direction._x * -_halfSize._x - _direction._y * _halfSize._y, _direction._y * -_halfSize._x + _direction._x * _halfSize._y);
 }
