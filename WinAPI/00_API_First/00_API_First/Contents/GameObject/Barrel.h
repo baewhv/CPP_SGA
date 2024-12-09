@@ -12,7 +12,7 @@ public:
 	void SetDirection(Vector dir) { _dir = dir; }
 	Vector& GetDirection() { return _dir; }
 	float GetLength() { return _length; }
-	Vector& GetMuzzle() { return _line->End(); }
+	Vector& GetMuzzle() { return _line->_end; }
 
 private:
 	shared_ptr<Line> _line;

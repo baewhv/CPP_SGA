@@ -79,6 +79,16 @@ public:
 		return *this;
 	}
 
+	float Angle() const
+	{
+		return atan2(_y, _x);
+	}
+
+	float Angle(const Vector& other) const
+	{
+		return Angle() - other.Angle();
+	}
+
 public:
 	float _x;
 	float _y;

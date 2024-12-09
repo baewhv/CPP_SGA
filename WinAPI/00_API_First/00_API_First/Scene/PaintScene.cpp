@@ -32,7 +32,7 @@ void PaintScene::Update()
 {
 	myCircle->Center() = mousePos;
 	myBox->Center() = Lerp(myBox->Center(), mousePos, 0.1f);   //선형 보간
-	myLine->End() = mousePos;
+	myLine->_end = mousePos;
 	myCircle->Update();
 	myBox->Update();
 	myLine->Update();
