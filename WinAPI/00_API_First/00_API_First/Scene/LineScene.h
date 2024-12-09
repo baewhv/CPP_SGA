@@ -15,6 +15,7 @@ private:
 	shared_ptr<Line> _line3;
 
 	shared_ptr<Line> _subLine1;
+	shared_ptr<CircleCollider> _crossPoint;
 
 };
 

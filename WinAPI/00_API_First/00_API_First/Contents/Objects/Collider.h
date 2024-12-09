@@ -27,6 +27,8 @@ public:
 	virtual bool IsCollision(shared_ptr<CircleCollider> other) const abstract;
 	virtual bool IsCollision(shared_ptr<RectCollider> other) const abstract;
 
+	void SetVisible(bool b) { _visible = b; }
+
 	Type getType() { return _type; }
 protected:
 	Type _type = NONE;
@@ -34,5 +36,6 @@ protected:
 	HPEN _colors[2];
 
 	Vector _center;
+	bool _visible = true;
 };
 

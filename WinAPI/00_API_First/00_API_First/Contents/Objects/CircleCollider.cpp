@@ -16,11 +16,13 @@ CircleCollider::~CircleCollider()
 
 void CircleCollider::Update()
 {
+	if (_visible == false) return;
 	//TODO
 }
 
 void CircleCollider::Render(HDC hdc)
 {
+	if (_visible == false) return;
 	SelectObject(hdc, _colors[_curColor]);
 	Ellipse(hdc, 
 		_center._x - _radius,
