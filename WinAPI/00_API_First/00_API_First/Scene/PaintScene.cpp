@@ -28,6 +28,10 @@ PaintScene::~PaintScene()
 		DeleteObject(brush);
 }
 
+void PaintScene::PostInitialize()
+{
+}
+
 void PaintScene::Update()
 {
 	myCircle->Center() = mousePos;

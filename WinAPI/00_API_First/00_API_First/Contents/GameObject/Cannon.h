@@ -7,6 +7,7 @@ public:
 	Cannon();
 	~Cannon();
 
+	void PostInitialize() { Ready(); }
 	void Update();
 	void Render(HDC hdc);
 
@@ -16,7 +17,7 @@ public:
 	shared_ptr<CircleCollider>& GetBody() { return _body; }
 
 	void Fire();
-	void Ready() { _barrel->SetCannon(shared_from_this()); }
+	
 
 	bool IsFireReady() 
 	{ 
@@ -36,6 +37,7 @@ private:
 	void InputBarrelRotation();
 
 	void InputFire();
+	void Ready() { _barrel->SetCannon(shared_from_this()); }
 
 private:
 	shared_ptr<CircleCollider> _body;

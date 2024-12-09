@@ -2,6 +2,12 @@
 class Line
 {
 public:
+	struct HitResult
+	{
+		bool _isHit;
+		Vector _pos;
+	};
+
 	Line(Vector s, Vector e);
 	~Line();
 
@@ -11,8 +17,10 @@ public:
 	void SetRed() { _curColor = 0; }
 	void SetGreen() { _curColor = 1; }
 
-	bool IsCross(shared_ptr<Line>& other, Vector& x) const;
+	HitResult IsCross(shared_ptr<Line>& other, Vector& x) const;
 	bool IsInPoint(Vector& other) const;
+
+	bool IsBetween(Vector center, Vector left, Vector right) const;
 
 public:
 	Vector _start;

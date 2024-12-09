@@ -26,9 +26,9 @@ void LineScene::Update()
 	_line3->_end = _line3->_start + (line2Nor * length);
 	
 
-	bool crossed = _line1->IsCross(_subLine1, _crossPoint->Center());
+	//bool crossed = _line1->IsCross(_subLine1, _crossPoint->Center());
 
-	if (crossed == true)
+	/*if (crossed == true)
 	{
 		_subLine1->SetRed();
 		_crossPoint->SetVisible(true);
@@ -37,7 +37,7 @@ void LineScene::Update()
 	{
 		_subLine1->SetGreen();
 		_crossPoint->SetVisible(false);
-	}
+	}*/
 
 
 	_line1->Update();
@@ -54,4 +54,8 @@ void LineScene::Render(HDC hdc)
 	//_line3->Render(hdc);
 	_subLine1->Render(hdc);
 	_crossPoint->Render(hdc);
+}
+
+void LineScene::PostInitialize()
+{
 }

@@ -7,7 +7,6 @@ CannonScene::CannonScene()
 {
 	_cannon = make_shared<Cannon>();
 
-	_cannon->Ready();
 }
 
 CannonScene::~CannonScene()
@@ -22,4 +21,9 @@ void CannonScene::Update()
 void CannonScene::Render(HDC hdc)
 {
 	_cannon->Render(hdc);
+}
+
+void CannonScene::PostInitialize()
+{
+	_cannon->PostInitialize();
 }

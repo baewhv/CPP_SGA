@@ -150,6 +150,7 @@
     <ClInclude Include="00_API_First.h" />
     <ClInclude Include="Contents\GameObject\Ball.h" />
     <ClInclude Include="Contents\GameObject\Barrel.h" />
+    <ClInclude Include="Scene\FortressScene.h" />
     <ClInclude Include="Scene\LineScene.h" />
     <ClInclude Include="Scene\CannonScene.h" />
     <ClInclude Include="Contents\GameObject\Cannon.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="00_API_First.cpp" />
     <ClCompile Include="Contents\GameObject\Ball.cpp" />
     <ClCompile Include="Contents\GameObject\Barrel.cpp" />
+    <ClCompile Include="Scene\FortressScene.cpp" />
     <ClCompile Include="Scene\LineScene.cpp" />
     <ClCompile Include="Scene\CannonScene.cpp" />
     <ClCompile Include="Contents\GameObject\Cannon.cpp" />

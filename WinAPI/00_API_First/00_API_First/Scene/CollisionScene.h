@@ -6,7 +6,7 @@ public:
 	CollisionScene();
 	~CollisionScene();
 
-	// Scene을(를) 통해 상속됨
+	void PostInitialize() override;
 	void Update() override;
 	void Render(HDC hdc) override;
 

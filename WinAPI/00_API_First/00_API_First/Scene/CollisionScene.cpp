@@ -14,6 +14,10 @@ CollisionScene::~CollisionScene()
 {
 }
 
+void CollisionScene::PostInitialize()
+{
+}
+
 void CollisionScene::Update()
 {
 	//cursorCircle->Center() = mousePos;
