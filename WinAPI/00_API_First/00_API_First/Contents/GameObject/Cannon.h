@@ -5,6 +5,7 @@ class Cannon : public enable_shared_from_this<Cannon>
 {
 public:
 	Cannon();
+	Cannon(Vector pos);
 	~Cannon();
 
 	void PostInitialize() { Ready(); }

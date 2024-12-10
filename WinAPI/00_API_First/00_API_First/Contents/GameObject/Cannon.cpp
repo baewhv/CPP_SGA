@@ -3,16 +3,19 @@
 #include "Ball.h"
 #include "Cannon.h"
 
-Cannon::Cannon()
+Cannon::Cannon() : Cannon(Vector(350, 350))
 {
-	_body = make_shared<CircleCollider>(Vector(350, 350), 50);
 	//_barrel = make_shared<Line>(_body->Center(), _body->Center() + Vector(150, 0));
+}
+
+Cannon::Cannon(Vector pos)
+{
+	_body = make_shared<CircleCollider>(pos, 50);
 	_barrel = make_shared<Barrel>();
 	for (int i = 0; i < _poolCount; i++)
 	{
 		_balls.push_back(make_shared<Ball>());
 	}
-	
 }
 
 Cannon::~Cannon()
