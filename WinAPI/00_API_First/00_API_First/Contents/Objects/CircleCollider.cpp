@@ -5,8 +5,6 @@ CircleCollider::CircleCollider(Vector center, float radius)
 	:_radius(radius)
 {
 	_center = center;
-	_colors[0] = CreatePen(3, 3, RED);
-	_colors[1] = CreatePen(3, 3, GREEN);
 	_type = CIRCLE;
 }
 
@@ -23,7 +21,8 @@ void CircleCollider::Update()
 void CircleCollider::Render(HDC hdc)
 {
 	if (_visible == false) return;
-	SelectObject(hdc, _colors[_curColor]);
+	if (_curColor != 2)
+		SelectObject(hdc, _colors[_curColor]);
 	Ellipse(hdc, 
 		_center._x - _radius,
 		_center._y - _radius,

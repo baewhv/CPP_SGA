@@ -21,6 +21,7 @@ public:
 
 	void SetRed() { _curColor = 0; }
 	void SetGreen() { _curColor = 1; }
+	void SetBlack() { _curColor = 2; }
 
 	virtual bool IsCollision(shared_ptr<Collider> collider) const;
 	virtual bool IsCollision(const Vector& pos) const abstract;
@@ -33,7 +34,7 @@ public:
 protected:
 	Type _type = NONE;
 	int _curColor = 1;
-	HPEN _colors[2];
+	HPEN _colors[3];
 
 	Vector _center;
 	bool _visible = true;

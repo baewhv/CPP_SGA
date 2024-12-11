@@ -9,21 +9,19 @@ public:
 	FortressScene();
 	~FortressScene();
 
-
 	void PostInitialize() override;
 	// Scene을(를) 통해 상속됨
 	virtual void Update() override;
 	virtual void Render(HDC hdc) override;
 
 private:
-	shared_ptr<Cannon> _cannon1;
-	shared_ptr<Cannon> _cannon2;
-public:
+	vector<shared_ptr<Cannon>> _cannons;
+	int curCannonNum;
 
+	weak_ptr<Cannon> _curCannon;
+	weak_ptr<Cannon> _nextCannon;
 	
-
-	// Scene을(를) 통해 상속됨
-	
-
+	void CheckTurn();
+	void ChoseTurn();
 };
 

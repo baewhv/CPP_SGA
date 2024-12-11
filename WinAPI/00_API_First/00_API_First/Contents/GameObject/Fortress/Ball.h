@@ -1,4 +1,6 @@
 #pragma once
+class Cannon;
+
 class Ball
 {
 public:
@@ -16,6 +18,7 @@ public:
 
 	void Fire(Vector pos, Vector dir);
 	bool IsOut();
+	void SetCannon(shared_ptr<Cannon> c) { myCannon = c; }
 
 private:
 	shared_ptr<CircleCollider> _ball;
@@ -24,5 +27,7 @@ private:
 	bool _isFired = false;
 	bool _isGravity = true;
 	float _gravity;
+
+	weak_ptr<Cannon> myCannon;
 };
 

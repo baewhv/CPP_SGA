@@ -60,22 +60,31 @@
     <ClInclude Include="Contents\Objects\RectangleCollider.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Contents\GameObject\Cannon.h">
+    <ClInclude Include="Contents\GameObject\Fortress\Cannon.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Scene\CannonScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Contents\GameObject\Ball.h">
+    <ClInclude Include="Contents\GameObject\Fortress\Ball.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Contents\GameObject\Barrel.h">
+    <ClInclude Include="Contents\GameObject\Fortress\Barrel.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Scene\LineScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Scene\FortressScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\MazeScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Contents\GameObject\Maze\Block.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Contents\GameObject\Maze\Maze.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -113,22 +122,31 @@
     <ClCompile Include="Contents\Objects\RectangleCollider.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Contents\GameObject\Cannon.cpp">
+    <ClCompile Include="Contents\GameObject\Fortress\Cannon.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Scene\CannonScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Contents\GameObject\Ball.cpp">
+    <ClCompile Include="Contents\GameObject\Fortress\Ball.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Contents\GameObject\Barrel.cpp">
+    <ClCompile Include="Contents\GameObject\Fortress\Barrel.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Scene\LineScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Scene\FortressScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\MazeScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Contents\GameObject\Maze\Block.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Contents\GameObject\Maze\Maze.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

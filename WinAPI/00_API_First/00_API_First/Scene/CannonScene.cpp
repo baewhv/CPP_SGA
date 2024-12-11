@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "CannonScene.h"
 
-#include "Contents/GameObject/Cannon.h"
+#include "Contents/GameObject/Fortress/Cannon.h"
 
 CannonScene::CannonScene()
 {

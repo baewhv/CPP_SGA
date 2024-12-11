@@ -5,10 +5,9 @@
 
 Cannon::Cannon() : Cannon(Vector(350, 350))
 {
-	//_barrel = make_shared<Line>(_body->Center(), _body->Center() + Vector(150, 0));
 }
 
-Cannon::Cannon(Vector pos)
+Cannon::Cannon(Vector pos) : _life(_maxLife)
 {
 	_body = make_shared<CircleCollider>(pos, 50);
 	_barrel = make_shared<Barrel>();
@@ -30,10 +29,12 @@ void Cannon::Update()
 	{
 		b->Update();
 	}
+	if (_myTurn == false) return;
 
 	InputMove();
 	InputBarrelRotation();
 	InputFire();
+
 	// ÃÑ½Å Á¶Á¤
 }
 
@@ -49,17 +50,15 @@ void Cannon::Render(HDC hdc)
 
 void Cannon::Fire()
 {
-	if (_shootStandby == true)
-	{
-		_shootStandby = false;
-		auto iter = std::find_if(_balls.begin(), _balls.end(), [](const shared_ptr<Ball>& ball) -> bool {
-			if (ball->IsFired() == false)
-				return true;
-			return false;
-			});
-		if (iter == _balls.end()) return;
-		(*iter)->Fire(_barrel->GetMuzzle(), _barrel->GetDirection());
-	}
+	auto iter = std::find_if(_balls.begin(), _balls.end(), [](const shared_ptr<Ball>& ball) -> bool {
+		if (ball->IsFired() == false)
+			return true;
+		return false;
+		});
+	if (iter == _balls.end()) return;
+	(*iter)->Fire(_barrel->GetMuzzle(), _barrel->GetDirection());
+	_shootCount++;
+	_myTurn = false;
 }
 
 void Cannon::InputMove()
@@ -70,7 +69,7 @@ void Cannon::InputMove()
 	if (GetAsyncKeyState(VK_RIGHT) & 0x8001)
 		_body->Center()._x += 3;
 
-	
+
 }
 
 void Cannon::InputBarrelRotation()
@@ -96,9 +95,24 @@ void Cannon::InputBarrelRotation()
 void Cannon::InputFire()
 {
 	if (GetAsyncKeyState(VK_SPACE) & 0x8001)
-		Fire();
+		_startCharge = true;
 	else
-		_shootStandby = true;
+	{
+		if (_startCharge)
+		{
+			Fire();
+			_startCharge = false;
+		}
+	}
+}
+
+void Cannon::Ready()
+{
+	_barrel->SetCannon(shared_from_this());
+	for (auto c : _balls)
+	{
+		c->SetCannon(shared_from_this());
+	}
 }
 
 

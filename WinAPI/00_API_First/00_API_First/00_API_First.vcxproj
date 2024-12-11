@@ -148,12 +148,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="00_API_First.h" />
-    <ClInclude Include="Contents\GameObject\Ball.h" />
-    <ClInclude Include="Contents\GameObject\Barrel.h" />
+    <ClInclude Include="Contents\GameObject\Maze\Block.h" />
+    <ClInclude Include="Contents\GameObject\Fortress\Ball.h" />
+    <ClInclude Include="Contents\GameObject\Fortress\Barrel.h" />
+    <ClInclude Include="Contents\GameObject\Maze\Maze.h" />
+    <ClInclude Include="Scene\MazeScene.h" />
     <ClInclude Include="Scene\FortressScene.h" />
     <ClInclude Include="Scene\LineScene.h" />
     <ClInclude Include="Scene\CannonScene.h" />
-    <ClInclude Include="Contents\GameObject\Cannon.h" />
+    <ClInclude Include="Contents\GameObject\Fortress\Cannon.h" />
     <ClInclude Include="Contents\Objects\Collider.h" />
     <ClInclude Include="Contents\Objects\RectangleCollider.h" />
     <ClInclude Include="Scene\CollisionScene.h" />
@@ -171,12 +174,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="00_API_First.cpp" />
-    <ClCompile Include="Contents\GameObject\Ball.cpp" />
-    <ClCompile Include="Contents\GameObject\Barrel.cpp" />
+    <ClCompile Include="Contents\GameObject\Maze\Block.cpp" />
+    <ClCompile Include="Contents\GameObject\Fortress\Ball.cpp" />
+    <ClCompile Include="Contents\GameObject\Fortress\Barrel.cpp" />
+    <ClCompile Include="Contents\GameObject\Maze\Maze.cpp" />
+    <ClCompile Include="Scene\MazeScene.cpp" />
     <ClCompile Include="Scene\FortressScene.cpp" />
     <ClCompile Include="Scene\LineScene.cpp" />
     <ClCompile Include="Scene\CannonScene.cpp" />
-    <ClCompile Include="Contents\GameObject\Cannon.cpp" />
+    <ClCompile Include="Contents\GameObject\Fortress\Cannon.cpp" />
     <ClCompile Include="Contents\Objects\Collider.cpp" />
     <ClCompile Include="Contents\Objects\RectangleCollider.cpp" />
     <ClCompile Include="Scene\CollisionScene.cpp" />

@@ -1,10 +1,12 @@
 #include "framework.h"
 #include "Ball.h"
+#include "Cannon.h"
 
 Ball::Ball() : _gravity(0.0f)
 {
 	_ball = make_shared<CircleCollider>(Vector(10000,0), 15);
 }
+
 
 Ball::~Ball()
 {
@@ -53,7 +55,12 @@ bool Ball::IsOut()
 	int y = _ball->Center()._y;
 
 	if (x > WIN_WIDTH || x < 0 || y > WIN_HEIGHT)
+	{
+		if (!myCannon.expired())
+			myCannon.lock()->ShootCount()--;
 		return true;
+		
+	}
 
 	return false;
 }
