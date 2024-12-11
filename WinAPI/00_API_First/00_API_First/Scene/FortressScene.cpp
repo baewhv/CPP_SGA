@@ -5,8 +5,8 @@
 
 FortressScene::FortressScene()
 {
-	_cannons.push_back(make_shared<Cannon>(Vector(WIN_WIDTH / 4, 350)));
-	_cannons.push_back(make_shared<Cannon>(Vector(WIN_WIDTH / 4 * 3, 350)));
+	_cannons.push_back(make_shared<Cannon>(Vector(WIN_WIDTH / 4, 350), 1));
+	_cannons.push_back(make_shared<Cannon>(Vector(WIN_WIDTH / 4 * 3, 350), 2));
 	_curCannon = _cannons[0];
 	_nextCannon = _cannons[1];
 	curCannonNum = 0;
@@ -21,7 +21,8 @@ void FortressScene::Update()
 {
 	for (auto c : _cannons)
 	{
-		c->Update();
+		if(c->IsAlive())
+			c->Update();
 	}
  	CheckTurn();
 }
@@ -30,7 +31,8 @@ void FortressScene::Render(HDC hdc)
 {
 	for (auto c : _cannons)
 	{
-		c->Render(hdc);
+		if (c->IsAlive())
+			c->Render(hdc);
 	}
 }
 
@@ -68,5 +70,6 @@ void FortressScene::PostInitialize()
 	for (auto c : _cannons)
 	{
 		c->PostInitialize();
+		c->SetEnemies(_cannons);
 	}
 }

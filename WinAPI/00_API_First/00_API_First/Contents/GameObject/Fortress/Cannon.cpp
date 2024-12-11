@@ -3,12 +3,14 @@
 #include "Ball.h"
 #include "Cannon.h"
 
-Cannon::Cannon() : Cannon(Vector(350, 350))
+Cannon::Cannon() : Cannon(Vector(350, 350), 0)
 {
 }
 
-Cannon::Cannon(Vector pos) : _life(_maxLife)
+Cannon::Cannon(Vector pos, int id)
 {
+	_life = _maxLife;
+	_id = id;
 	_body = make_shared<CircleCollider>(pos, 50);
 	_barrel = make_shared<Barrel>();
 	for (int i = 0; i < _poolCount; i++)
@@ -25,11 +27,20 @@ void Cannon::Update()
 {
 	_body->Update();
 	_barrel->Update();
+
 	for (auto b : _balls)
 	{
 		b->Update();
 	}
+
 	if (_myTurn == false) return;
+
+	if (_startCharge)
+	{
+		if (_addForce > _maxForce)
+			_addForce = _maxForce;
+		_addForce += 0.1f;
+	}
 
 	InputMove();
 	InputBarrelRotation();
@@ -56,9 +67,11 @@ void Cannon::Fire()
 		return false;
 		});
 	if (iter == _balls.end()) return;
+	(*iter)->SetSpeed(5.0f + _addForce);
 	(*iter)->Fire(_barrel->GetMuzzle(), _barrel->GetDirection());
 	_shootCount++;
 	_myTurn = false;
+	_addForce = 0.0f;
 }
 
 void Cannon::InputMove()

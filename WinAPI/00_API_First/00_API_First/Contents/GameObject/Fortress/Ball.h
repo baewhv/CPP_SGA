@@ -13,13 +13,13 @@ public:
 	
 	void SetPosition(Vector pos) { _ball->Center() = pos; }
 	void SetDirection(Vector dir) { _direction = dir; }
-	void SetSpeed(float spd) { _speed = spd; }
+	void SetSpeed(float spd = 5.0f) { _speed = spd; }
 	bool IsFired() { return _isFired; }
 
 	void Fire(Vector pos, Vector dir);
 	bool IsOut();
 	void SetCannon(shared_ptr<Cannon> c) { myCannon = c; }
-
+	
 private:
 	shared_ptr<CircleCollider> _ball;
 	Vector _direction;
