@@ -12,6 +12,10 @@ FortressScene::FortressScene()
 	_nextCannon = _cannons[1];
 	curCannonNum = 0;
 	_cannons[curCannonNum]->SetTurn(true);
+	for (auto it : _cannons)
+	{
+
+	}
 }
 
 FortressScene::~FortressScene()
@@ -39,7 +43,7 @@ void FortressScene::Render(HDC hdc)
 
 void FortressScene::CheckTurn()
 {
-	if (_curCannon.expired())
+	if (_curCannon.expired() || _curCannon.lock()->IsAlive() == false)
 	{
 		ChoseTurn();
 		return;

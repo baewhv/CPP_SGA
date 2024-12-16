@@ -18,11 +18,12 @@ public:
 
 private:
 	vector<shared_ptr<Cannon>> _cannons;
+	vector<shared_ptr<RectCollider>> _hpBar;
 	int curCannonNum;
 
 	weak_ptr<Cannon> _curCannon;
 	weak_ptr<Cannon> _nextCannon;
-	
+
 	void CheckTurn();
 	void ChoseTurn();
 

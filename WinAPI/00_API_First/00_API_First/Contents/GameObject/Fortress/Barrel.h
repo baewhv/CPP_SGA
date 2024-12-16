@@ -13,10 +13,10 @@ public:
 	Vector& GetDirection() { return _dir; }
 	float GetLength() { return _length; }
 	
-	Vector& GetMuzzle() { return _line->_end; }
-
+	//Vector& GetMuzzle() { return _line->_end; }
+	Vector GetMuzzle() { return _barrel->Center()+(_dir *_length * 0.5) ; }
 private:
-	shared_ptr<Line> _line;
+	//shared_ptr<Line> _line;
 	shared_ptr<RectangleCollider> _barrel;
 
 	float _length = 150.0f; //-> 15f;
