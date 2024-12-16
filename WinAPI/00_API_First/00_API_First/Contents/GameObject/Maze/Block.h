@@ -6,7 +6,11 @@ public:
 	{
 		NONE,
 		ABLE,
-		DISABLE
+		DISABLE,
+		PLAYER,
+		FOOTPRINT,
+		START,
+		END,
 	};
 
 	Block();
@@ -15,6 +19,8 @@ public:
 	void Update();
 	void Render(HDC hdc);
 
+
+	BlockType GetType() { return _curType; }
 	void SetType(BlockType type) { _curType = type; }
 	void SetPos(Vector pos) { _rect->Center() = pos; }
 

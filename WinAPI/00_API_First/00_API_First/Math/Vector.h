@@ -62,6 +62,16 @@ public:
 		_y -= other._y;
 		return *this;
 	}
+	bool operator==(const Vector& other)
+	{
+		if (_x != other._x) return false;
+		if (_y != other._y) return false;
+		return true;
+	}
+	bool operator!=(const Vector& other)
+	{
+		return !this->operator==(other);
+	}
 
 	Vector NormalVector() const
 	{

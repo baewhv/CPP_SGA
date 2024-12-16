@@ -7,8 +7,12 @@ Block::Block()
 	_rect->SetBlack();
 
 	_brushes.push_back(CreateSolidBrush(WHITE));
-	_brushes.push_back(CreateSolidBrush(GREEN));
-	_brushes.push_back(CreateSolidBrush(RED));
+	_brushes.push_back(CreateSolidBrush(ROADGREEN));
+	_brushes.push_back(CreateSolidBrush(REDWALL));
+	_brushes.push_back(CreateSolidBrush(SAND_DOLLOR));
+	_brushes.push_back(CreateSolidBrush(WHITE));
+	_brushes.push_back(CreateSolidBrush(RGB(220, 25, 220)));
+	_brushes.push_back(CreateSolidBrush(RGB(220, 25, 220)));
 	_brushes.push_back(CreateSolidBrush(BLACK));
 }
 

@@ -25,6 +25,7 @@
 #include <string>
 #include <functional>
 
+#include <time.h>
 
 using namespace std;
 
@@ -46,6 +47,8 @@ using namespace std;
 //Program
 #include <Program/Program.h>
 
+//Game Contents
+#include <Contents/GameObject/Maze/MazeVector.h>
 extern Vector mousePos;	//어디서든 이 객체를 읽을 수 있도록.
 extern HWND hWnd;
 

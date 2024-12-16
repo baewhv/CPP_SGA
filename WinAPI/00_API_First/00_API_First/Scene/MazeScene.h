@@ -2,6 +2,7 @@
 #include "Scene.h"
 
 class Maze;
+class MazePlayer;
 class MazeScene :
     public Scene
 {
@@ -16,5 +17,6 @@ public:
 private:
     //shared_ptr<Block> _block;
     shared_ptr<Maze> _maze;
+    shared_ptr<MazePlayer> _player;
 };
 

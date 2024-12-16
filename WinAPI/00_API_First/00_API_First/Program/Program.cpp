@@ -12,6 +12,7 @@ HDC Program::backBuffer = nullptr;
 
 Program::Program()
 {
+    srand(time(nullptr));
     HDC hdc = GetDC(hWnd);
 
     backBuffer = CreateCompatibleDC(hdc);
@@ -27,7 +28,7 @@ Program::Program()
     _sceneTable["FortressScene"] = make_shared<FortressScene>();
     _sceneTable["MazeScene"] = make_shared<MazeScene>();
 
-    _curScene = "FortressScene";
+    _curScene = "MazeScene";
 
     _sceneTable[_curScene]->PostInitialize();
 }
