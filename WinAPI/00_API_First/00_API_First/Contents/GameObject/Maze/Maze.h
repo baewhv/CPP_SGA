@@ -11,6 +11,9 @@ public:
 
 	void Update();
 	void Render(HDC hdc);
+	void CreateMaze();
+
+
 private:
 	vector<vector<shared_ptr<Block>>> _blocks;
 };

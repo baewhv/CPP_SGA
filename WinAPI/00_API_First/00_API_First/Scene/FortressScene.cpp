@@ -6,7 +6,8 @@
 FortressScene::FortressScene()
 {
 	_cannons.push_back(make_shared<Cannon>(Vector(WIN_WIDTH / 4, 350), 1));
-	_cannons.push_back(make_shared<Cannon>(Vector(WIN_WIDTH / 4 * 3, 350), 2));
+	_cannons.push_back(make_shared<Cannon>(Vector(WIN_WIDTH / 4 * 2, 350), 2));
+	_cannons.push_back(make_shared<Cannon>(Vector(WIN_WIDTH / 4 * 3, 350), 3));
 	_curCannon = _cannons[0];
 	_nextCannon = _cannons[1];
 	curCannonNum = 0;
@@ -71,5 +72,7 @@ void FortressScene::PostInitialize()
 	{
 		c->PostInitialize();
 		c->SetEnemies(_cannons);
+		//c->SetFireEvent(bind(FortressScene::NextTurn, this));
 	}
+	
 }

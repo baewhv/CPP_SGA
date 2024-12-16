@@ -47,6 +47,9 @@ public:
 		}
 	}
 
+	
+	//void SetFireEvent(function<void(void)> event) { _fireEvent = event; }
+
 private:
 	// 입력으로 좌우로 움직이게 만드는 함수
 	void InputMove();
@@ -55,6 +58,11 @@ private:
 
 	void InputFire();
 	void Ready();
+
+	//function<void(void)> _fireEvent; //전역 함수 OK, 멤버함수 OK, 함수객체 OK => 모든 callable 객체를 담을 수 있는 함수 포인터
+	//using FUNC = void(*)(void); //매개변수 void, 반환자료형 void를 저장할 수 있는 함수 포인터.
+	//using FUNC_SCENE = void(Scene::*)(void); //Scene의 멤버함수 매개변수(void), 반환자료형 void,
+
 private:
 	shared_ptr<CircleCollider> _body;
 	//shared_ptr<Line> _barrel;
@@ -70,7 +78,7 @@ private:
 
 	int _shootCount = 0;
 	int _life = 0;
-	int _maxLife = 5;
+	int _maxLife = 2;
 
 	bool _startCharge = false;
 	float _maxForce = 10.0f;

@@ -23,6 +23,8 @@
 #include <algorithm>
 //string
 #include <string>
+#include <functional>
+
 
 using namespace std;
 
@@ -45,5 +47,6 @@ using namespace std;
 #include <Program/Program.h>
 
 extern Vector mousePos;	//어디서든 이 객체를 읽을 수 있도록.
+extern HWND hWnd;
 
 

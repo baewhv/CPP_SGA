@@ -14,6 +14,8 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC hdc) override;
 
+	//void NextTurn() { _myTurn = !_myTurn; }
+
 private:
 	vector<shared_ptr<Cannon>> _cannons;
 	int curCannonNum;
@@ -23,5 +25,7 @@ private:
 	
 	void CheckTurn();
 	void ChoseTurn();
+
+	//bool _myTurn = false;
 };
 

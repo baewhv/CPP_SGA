@@ -72,6 +72,9 @@ void Cannon::Fire()
 	_shootCount++;
 	_myTurn = false;
 	_addForce = 0.0f;
+
+	//if (_fireEvent != nullptr)
+	//	_fireEvent();
 }
 
 void Cannon::InputMove()
