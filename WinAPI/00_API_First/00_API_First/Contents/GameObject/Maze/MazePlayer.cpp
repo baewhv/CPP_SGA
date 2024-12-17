@@ -51,7 +51,7 @@ void MazePlayer::Init()
 		_endPos = _maze->GetEndPos();
 	}
 	RightHand();
-	_maze->SetBlockType(_startPos._y, _startPos._x, Block::BlockType::START);
+	//_maze->SetBlockType(_startPos._y, _startPos._x, Block::BlockType::START);
 	_maze->SetBlockType(_endPos._y, _endPos._x, Block::BlockType::END);
 }
 

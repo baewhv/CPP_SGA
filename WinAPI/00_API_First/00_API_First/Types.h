@@ -9,13 +9,15 @@
 #define Lerp(s,e,t) s + (e - s) * t
 
 #define RED RGB(255,0,0)
-#define REDWALL RGB(180,50,50)
 #define GREEN RGB(0,255,0)
-#define ROADGREEN RGB(70,180,70)
 #define BLUE RGB(0,0,255)
 #define WHITE RGB(255,255,255)
 #define BLACK RGB(0,0,0)
-#define SAND_DOLLOR RGB(222,205,1*7)
+//maze Color
+#define REDWALL RGB(180,50,50)
+#define ROADGREEN RGB(70,180,70)
+#define SAND_DOLLOR RGB(222,205,7)
+#define GRAY RGB(124,124,124)
 
 
 using int16 = short;
