@@ -50,6 +50,8 @@ private:
 };
 
 
+//FILO
+
 template<typename T, class Container = vector<int>>
 class Stack
 {
@@ -91,7 +93,6 @@ int main()
 		if (s.empty() == true)
 			break;
 	}
-
 }
 
 
