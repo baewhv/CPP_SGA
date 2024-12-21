@@ -17,7 +17,7 @@
 #define REDWALL RGB(180,50,50)
 #define ROADGREEN RGB(70,180,70)
 #define SAND_DOLLOR RGB(222,205,7)
-#define GRAY RGB(124,124,124)
+#define GRAY RGB(70,70,70)
 
 
 using int16 = short;

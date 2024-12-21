@@ -11,6 +11,7 @@ public:
 		FOOTPRINT,
 		START,
 		END,
+		DFSPRINT
 	};
 
 	Block();

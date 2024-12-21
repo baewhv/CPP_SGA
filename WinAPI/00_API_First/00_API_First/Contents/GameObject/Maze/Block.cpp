@@ -10,9 +10,10 @@ Block::Block()
 	_brushes.push_back(CreateSolidBrush(ROADGREEN));
 	_brushes.push_back(CreateSolidBrush(REDWALL));
 	_brushes.push_back(CreateSolidBrush(SAND_DOLLOR));
+	_brushes.push_back(CreateSolidBrush(GRAY));
+	_brushes.push_back(CreateSolidBrush(RGB(220, 25, 220)));
+	_brushes.push_back(CreateSolidBrush(RGB(220, 25, 220)));
 	_brushes.push_back(CreateSolidBrush(WHITE));
-	_brushes.push_back(CreateSolidBrush(RGB(220, 25, 220)));
-	_brushes.push_back(CreateSolidBrush(RGB(220, 25, 220)));
 	_brushes.push_back(CreateSolidBrush(BLACK));
 }
 

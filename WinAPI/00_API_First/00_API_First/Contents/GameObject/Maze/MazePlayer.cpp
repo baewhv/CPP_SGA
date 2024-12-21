@@ -16,21 +16,30 @@ void MazePlayer::Update()
 {
 	if (_pathIndex >= _path.size())
 		return;
-	
+
 	_time += 0.1f;
 	if (_time > 1.0f)
 	{
 		_time -= 1.0f;
-		if(_pos == _startPos)
+
+
+		if (_pos == _startPos)
 			_maze->SetBlockType(_pos._y, _pos._x, Block::BlockType::START);
+		else if(_pos == _endPos)
+			_maze->SetBlockType(_pos._y, _pos._x, Block::BlockType::END);
+		else if (setDFS == true)
+			_maze->SetBlockType(_pos._y, _pos._x, Block::BlockType::DFSPRINT);
 		else
 			_maze->SetBlockType(_pos._y, _pos._x, Block::BlockType::FOOTPRINT);
 		_pos = _path[_pathIndex];
-
+		if (_pos == _endPos)
+			setDFS = true;
+		_maze->SetBlockType(_pos._y, _pos._x, Block::BlockType::PLAYER);
 		_pathIndex++;
+
 	}
-	
-	_maze->SetBlockType(_pos._y, _pos._x, Block::BlockType::PLAYER);
+
+
 }
 
 void MazePlayer::SetMaze(shared_ptr<Maze> maze)
@@ -52,7 +61,7 @@ void MazePlayer::Init()
 		_endPos = _maze->GetEndPos();
 	}
 	RightHand();
-	//void DFS();
+	DFS();
 
 	//_maze->SetBlockType(_startPos._y, _startPos._x, Block::BlockType::START);
 	_maze->SetBlockType(_endPos._y, _endPos._x, Block::BlockType::END);
@@ -77,7 +86,6 @@ void MazePlayer::RightHand()
 			_path.push_back(_pos);
 			break;
 		}
-
 
 		int newDir = (_dir - 1 + DIR_COUNT) % DIR_COUNT; // 오른쪽 회전
 		Vector oldDirVector = frontPos[_dir]; //내 앞방향
@@ -123,6 +131,53 @@ void MazePlayer::RightHand()
 	}
 	std::reverse(_path.begin(), _path.end());
 	_pos = _startPos;
+}
+
+void MazePlayer::DFS()
+{
+	_pos = _startPos;
+	_path.push_back(_pos);
+	stack<Vector> DFSV;
+	vector<vector<bool>> visit(MAX_Y, vector<bool>( MAX_X, false ));
+	DFSV.push(_pos);
+
+
+	Vector frontPos[4] = {
+	Vector{ 0, -1}, //up
+	Vector{-1,  0}, //left
+	Vector{ 0,  1}, //down
+	Vector{ 1,  0}, //right
+	};
+
+	while (true)
+	{
+		if (DFSV.empty())
+		{
+			break;
+		}
+
+		if (visit[DFSV.top()._y][DFSV.top()._x] == false)
+		{
+			visit[DFSV.top()._y][DFSV.top()._x] = true;
+			_path.push_back(DFSV.top());
+		}
+
+		for (int i = 0; i <= 4; i++)
+		{
+			if (i == 4)
+			{
+				DFSV.pop();
+				break;
+			}
+			Vector movePos = DFSV.top() + frontPos[i];
+			if (CanGo(movePos._y, movePos._x) && visit[movePos._y][movePos._x] == false)
+			{
+				DFSV.push(movePos);
+				break;
+			}
+		}
+		
+	}
 }
 
 bool MazePlayer::CanGo(int y, int x)

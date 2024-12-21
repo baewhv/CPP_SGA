@@ -19,6 +19,7 @@ public:
 	void Init();
 
 	void RightHand();
+	void DFS();
 	bool CanGo(int y, int x);
 
 private:
@@ -32,5 +33,6 @@ private:
 	int _pathIndex = 0;
 	float _time = 1.1f;
 	vector<Vector> _path;
+	bool setDFS = false;
 };
 
